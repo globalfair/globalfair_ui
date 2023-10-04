@@ -16,7 +16,8 @@ class GfSwitch extends StatelessWidget {
       value: value,
       onChanged: onTap,
       thumbColor: MaterialStateProperty.all(gfWhiteColor),
-      activeTrackColor: gfPrimary1Color,
+      inactiveThumbColor: onTap == null ? gfGrey6Color : gfGrey1Color,
+      activeTrackColor: onTap == null ? gfPrimary6Color : gfPrimary1Color,
     );
   }
 }

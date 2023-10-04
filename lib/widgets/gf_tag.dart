@@ -6,50 +6,106 @@ class GfTag extends StatelessWidget {
   final Color textColor;
   final String label;
   final Color backgroundColor;
-  final Widget? surfix;
-  final Widget? prefix;
+  final IconData? suffix;
+  final Function()? onSuffixTap;
+  final Function()? onPrefixTap;
+  final IconData? prefix;
 
-  const GfTag({Key? key, this.surfix, this.prefix, required this.label})
+  const GfTag(
+      {Key? key,
+      this.suffix,
+      this.prefix,
+      required this.label,
+      this.onPrefixTap,
+      this.onSuffixTap})
       : textColor = gfPrimary1Color,
         backgroundColor = gfPrimary4Color,
         super(key: key);
 
-  const GfTag.blue({Key? key, this.surfix, this.prefix, required this.label})
+  const GfTag.blue(
+      {Key? key,
+      this.suffix,
+      this.prefix,
+      required this.label,
+      this.onPrefixTap,
+      this.onSuffixTap})
       : textColor = gfPrimary1Color,
         backgroundColor = gfPrimary4Color,
         super(key: key);
 
-  const GfTag.red({Key? key, this.surfix, this.prefix, required this.label})
+  const GfTag.red(
+      {Key? key,
+      this.suffix,
+      this.prefix,
+      required this.label,
+      this.onPrefixTap,
+      this.onSuffixTap})
       : textColor = gfError1Color,
         backgroundColor = gfError4Color,
         super(key: key);
 
-  const GfTag.yellow({Key? key, this.surfix, this.prefix, required this.label})
+  const GfTag.yellow(
+      {Key? key,
+      this.suffix,
+      this.prefix,
+      required this.label,
+      this.onPrefixTap,
+      this.onSuffixTap})
       : textColor = gfWarning1Color,
         backgroundColor = gfWarning4Color,
         super(key: key);
 
-  const GfTag.green({Key? key, this.surfix, this.prefix, required this.label})
+  const GfTag.green(
+      {Key? key,
+      this.suffix,
+      this.prefix,
+      required this.label,
+      this.onPrefixTap,
+      this.onSuffixTap})
       : textColor = gfSuccess1Color,
         backgroundColor = gfSuccess4Color,
         super(key: key);
 
-  const GfTag.purple({Key? key, this.surfix, this.prefix, required this.label})
+  const GfTag.purple(
+      {Key? key,
+      this.suffix,
+      this.prefix,
+      required this.label,
+      this.onPrefixTap,
+      this.onSuffixTap})
       : textColor = gfPurple1Color,
         backgroundColor = gfPurple4Color,
         super(key: key);
 
-  const GfTag.orange({Key? key, this.surfix, this.prefix, required this.label})
+  const GfTag.orange(
+      {Key? key,
+      this.suffix,
+      this.prefix,
+      required this.label,
+      this.onPrefixTap,
+      this.onSuffixTap})
       : textColor = gfOrange1Color,
         backgroundColor = gfOrange4Color,
         super(key: key);
 
-  const GfTag.pink({Key? key, this.surfix, this.prefix, required this.label})
+  const GfTag.pink(
+      {Key? key,
+      this.suffix,
+      this.prefix,
+      required this.label,
+      this.onPrefixTap,
+      this.onSuffixTap})
       : textColor = gfPink1Color,
         backgroundColor = gfPink4Color,
         super(key: key);
 
-  const GfTag.gey({Key? key, this.surfix, this.prefix, required this.label})
+  const GfTag.gey(
+      {Key? key,
+      this.suffix,
+      this.prefix,
+      required this.label,
+      this.onPrefixTap,
+      this.onSuffixTap})
       : textColor = gfGrey1Color,
         backgroundColor = gfGrey4Color,
         super(key: key);
@@ -66,7 +122,14 @@ class GfTag extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          prefix ?? SizedBox(),
+          prefix == null
+              ? SizedBox()
+              : InkWell(
+                  onTap: onPrefixTap,
+                  child: Icon(
+                    prefix,
+                    color: textColor,
+                  )),
           SizedBox(
             width: prefix == null ? 5 : 0,
           ),
@@ -75,9 +138,16 @@ class GfTag extends StatelessWidget {
             style: TextStyle(color: textColor),
           ),
           SizedBox(
-            width: surfix == null ? 5 : 0,
+            width: suffix == null ? 5 : 0,
           ),
-          surfix ?? SizedBox(),
+          suffix == null
+              ? SizedBox()
+              : InkWell(
+                  onTap: onSuffixTap,
+                  child: Icon(
+                    suffix,
+                    color: textColor,
+                  ))
         ],
       ),
     );

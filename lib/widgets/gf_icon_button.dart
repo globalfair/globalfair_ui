@@ -65,6 +65,7 @@ class GfIconButton extends StatelessWidget {
                   splashRadius: 22,
                   onPressed: onTap,
                   icon: icon,
+                  color: gfPrimary1Color,
                   disabledColor: gfGrey1Color,
                   hoverColor: gfPrimary7Color,
                   splashColor: gfPrimary6Color,

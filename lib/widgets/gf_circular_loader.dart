@@ -5,33 +5,21 @@ import '../shared/app_colors.dart';
 
 class GfCircularLoader extends StatelessWidget {
   final double loaderSize;
-  bool isSuccess = false;
+  final bool isSuccess;
   final Function()? onErrorCallback;
-  bool isError = false;
+  final bool isError;
 
-  GfCircularLoader({
+ const GfCircularLoader({
     Key? key,
     this.onErrorCallback,
     this.loaderSize = 20,
-  }) : super(key: key);
-
-  GfCircularLoader.success({
-    Key? key,
-    this.isSuccess = true,
-    this.onErrorCallback,
-    this.loaderSize = 20,
-  }) : super(key: key);
-
-  GfCircularLoader.error({
-    Key? key,
-    this.isError = true,
-    this.onErrorCallback,
-    this.loaderSize = 20,
+    this.isSuccess = false,
+    this.isError = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: loaderSize,
       height: loaderSize,
       child: isSuccess
@@ -45,7 +33,7 @@ class GfCircularLoader extends StatelessWidget {
                     size: loaderSize,
                   ),
                 )
-              : CircularProgressIndicator(
+              : const CircularProgressIndicator(
                   color: gfPrimary1Color,
                 ),
     );

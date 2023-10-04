@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:globalfair_ui/globalfair_ui.dart';
+import 'package:globalfair_ui/widgets/gf_textfield.dart';
 import 'package:unicons/unicons.dart';
 
 void main() {
@@ -32,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
   double _counter = 0;
   int radioSelected = 0;
   bool _checkboxVal = false;
-  RangeValues _currentRangeValues = const RangeValues(40, 80);
+  RangeValues _currentRangeValues = const RangeValues(0, 50);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,197 +43,428 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SizedBox(
-                width: 200,
-                height: 48,
-                child: GfButton(
-                  busy: true,
-                  title: "ButtonText",
-                  onTap: () {},
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                width: 48,
-                height: 48,
-                child: GfIconButton.outline(
-                  icon: Icon(Icons.add),
-                  onTap: () {},
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                width: 48,
-                height: 48,
-                child: GfIconButton.solid(
-                  icon: Icon(Icons.add),
-                  onTap: () {},
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                width: 48,
-                height: 48,
-                child: GfIconButton(
-                  icon: Icon(Icons.add),
-                  onTap: () {},
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                width: 200,
-                height: 48,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: GfButton.outline(
-                  trailing: Icon(Icons.add),
-                  title: "ButtonText",
+                  scale: GfButtonScale.small(),
+                  size: GfButtonSize.mini(),
+                  title: "small",
                   onTap: () {},
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                width: 400,
-                height: 48,
-                child: GfButton.text(
-                  trailing: Icon(Icons.add),
-                  title: "ButtonText",
-                  onTap: () {},
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                width: 140,
-                height: 48,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: GfButton.outline(
-                  trailing: Icon(Icons.add),
-                  title: "ButtonText",
+                  scale: GfButtonScale.large(),
+                  size: GfButtonSize.mini(),
+                  title: "large",
                   onTap: () {},
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                width: 400,
-                height: 48,
-                child: GfSlider(
-                  label: _counter.toInt().toString(),
-                  value: _counter,
-                  divisions: 100,
-                  onTap: (a) {
-                    setState(() {
-                      _counter = a;
-                    });
-                  },
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.outline(
+                  scale: GfButtonScale.large(),
+                  size: GfButtonSize.full(),
+                  title: "large",
+                  disabled: true,
+                  onTap: () {},
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                width: 400,
-                height: 48,
-                child: GfSlider(
-                  value: 20,
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              GfCheckbox(
-                onTap: (val) {
-                  setState(() {
-                    _checkboxVal = val!;
-                  });
-                },
-                value: _checkboxVal,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              GfRadioButton<int>(
-                value: 2,
-                selectedOption: radioSelected,
-                onTap: (a) {
-                  setState(() {
-                    radioSelected = a!;
-                  });
-                },
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              GfSwitch(value: true, onTap: null),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                width: 200,
-                child: GfRangeSlider(
-                  values: _currentRangeValues,
-                  max: 100,
-                  divisions: 5,
-                  labels: RangeLabels(
-                    _currentRangeValues.start.round().toString(),
-                    _currentRangeValues.end.round().toString(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTooltip(
+                  headingText: "Loading button ",
+                  subHeading: "this is what loading button looks like ",
+                  child: GfButton.outline(
+                    scale: GfButtonScale.medium(),
+                    size: GfButtonSize.medium(),
+                    title: "large",
+                    busy: true,
+                    disabled: true,
+                    onTap: () {},
                   ),
-                  onTap: (RangeValues values) {
-                    setState(() {
-                      _currentRangeValues = values;
-                    });
-                  },
                 ),
               ),
-              SizedBox(
-                height: 20,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: 48,
+                      height: 48,
+                      child: GfIconButton.outline(
+                        icon: Icon(Icons.add),
+                        onTap: () {},
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: 48,
+                      height: 48,
+                      child: GfIconButton.solid(
+                        icon: Icon(Icons.add),
+                        onTap: () {},
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: 48,
+                      height: 48,
+                      child: GfIconButton(
+                        icon: Icon(Icons.add),
+                        onTap: () {},
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: 48,
+                      height: 48,
+                      child: GfIconButton.outline(
+                        icon: Icon(Icons.add),
+                        onTap: null,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              GfCircularLoader(
-                loaderSize: 80,
-                onErrorCallback: () {},
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfCheckbox(
+                      onTap: (val) {
+                        setState(() {
+                          _checkboxVal = val!;
+                        });
+                      },
+                      value: _checkboxVal,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfRadioButton<int>(
+                      value: 2,
+                      selectedOption: radioSelected,
+                      onTap: (a) {
+                        setState(() {
+                          radioSelected = a!;
+                        });
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfSwitch(
+                      value: false,
+                      onTap: (a) {},
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfSwitch(
+                      value: true,
+                      onTap: (a) {},
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfSwitch(
+                      value: false,
+                      onTap: null,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfSwitch(
+                      value: true,
+                      onTap: null,
+                    ),
+                  ),
+                ],
               ),
-              SizedBox(
-                height: 20,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 400,
+                  height: 48,
+                  child: GfSlider(
+                    value: 20,
+                  ),
+                ),
               ),
-              SizedBox(
-                height: 20,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 400,
+                  height: 48,
+                  child: GfSlider(
+                    value: 50,
+                    onTap: (a) {},
+                  ),
+                ),
               ),
-              GfCircularLoader.error(
-                loaderSize: 80,
-                onErrorCallback: () {},
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 200,
+                  child: GfRangeSlider(
+                    values: _currentRangeValues,
+                    max: 100,
+                    divisions: 5,
+                    labels: RangeLabels(
+                      _currentRangeValues.start.round().toString(),
+                      _currentRangeValues.end.round().toString(),
+                    ),
+                    onTap: (RangeValues values) {
+                      setState(() {
+                        _currentRangeValues = values;
+                      });
+                    },
+                  ),
+                ),
               ),
-              SizedBox(
-                height: 20,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.normal(
+                  prefixWidget: Icon(Icons.add),
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
               ),
-              SizedBox(
-                height: 20,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.large(
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
               ),
-              GfCircularLoader.success(
-                loaderSize: 80,
-                onErrorCallback: () {},
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.large(
+                  suffixWidget: Icon(Icons.add),
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
               ),
-              SizedBox(
-                height: 20,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.large(
+                  suffixWidget: GfButton.filled(
+                    trailing: Icons.arrow_forward,
+                    onTap: () {},
+                    title: "Submit",
+                    scale: GfButtonScale.small(),
+                    size: GfButtonSize.mini(),
+                  ),
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
               ),
-              GfTag(label: "Tag",),
-              SizedBox(
-                height: 20,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.large(
+                  prefixWidget: Icon(Icons.person),
+                  suffixWidget: GfButton.filled(
+                    trailing: Icons.arrow_forward,
+                    onTap: () {},
+                    title: "Submit button",
+                    scale: GfButtonScale.small(),
+                    size: GfButtonSize.medium(),
+                  ),
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
               ),
-              GfTag.pink(label: "Pink tag",
-                  surfix: 
-                 Icon(UniconsLine.times),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfCircularLoader(
+                      loaderSize: 80,
+                      onErrorCallback: () {},
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfCircularLoader(
+                      isError: true,
+                      loaderSize: 80,
+                      onErrorCallback: () {},
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfCircularLoader(
+                      isSuccess: true,
+                      loaderSize: 80,
+                      onErrorCallback: () {},
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfCircularLoader(
+                      loaderSize: 40,
+                      onErrorCallback: () {},
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfCircularLoader(
+                      isError: true,
+                      loaderSize: 40,
+                      onErrorCallback: () {},
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfCircularLoader(
+                      isSuccess: true,
+                      loaderSize: 40,
+                      onErrorCallback: () {},
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfTag.blue(
+                      label: "blue tag",
+                      onSuffixTap: () {},
+                      prefix: UniconsLine.times,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfTag.pink(
+                      label: "pink tag",
+                      onSuffixTap: () {},
+                      prefix: UniconsLine.times,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfTag.red(
+                      label: "red tag",
+                      onSuffixTap: () {},
+                      prefix: UniconsLine.times,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfTag.gey(
+                      label: "grey tag",
+                      onSuffixTap: () {},
+                      suffix: UniconsLine.times,
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 350,
+                  height: 200,
+                  child: GfSnackBar.success(
+                    message: "add your message here",
+                    configuration: SnackBarConfig.center2Button,
+                    onCancelTap: () {},
+                    onBackTap: () {},
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 350,
+                  height: 100,
+                  child: GfSnackBar.error(
+                    message: "add your message here",
+                    configuration: SnackBarConfig.rightNoButton,
+                    onCancelTap: () {},
+                    onBackTap: () {},
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 350,
+                  height: 200,
+                  child: GfSnackBar.warning(
+                    message: "add your message here",
+                    configuration: SnackBarConfig.center1Button,
+                    onCancelTap: () {},
+                    onBackTap: () {},
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 350,
+                  height: 200,
+                  child: GfSnackBar.information(
+                    message: "add your message here",
+                    configuration: SnackBarConfig.centerNoButton,
+                    onCancelTap: () {},
+                    onBackTap: () {},
+                  ),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfAvatar.small(
+                      child: Container(
+                        color: Colors.red,
+                      ),
+                      withDot: true,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfAvatar.medium(
+                      child: Container(
+                        color: Colors.red,
+                      ),
+                      withDot: true,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfAvatar.large(
+                      withDot: true,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GfAvatar.extraLarge(
+                      child: Image.network('https://via.placeholder.com/150'),
+                      withDot: true,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
