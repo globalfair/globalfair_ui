@@ -26,22 +26,21 @@ class GfButtonScale {
           horizontal: GfDouble.gf16(),
           vertical: GfDouble.gf8(),
         ),
-        textStyle = GfTextStyle.b4(),
+        textStyle = GfTextStyle.b4(fontWeight: FontWeight.bold),
         height = GfDouble.gf32();
   GfButtonScale.medium()
       : padding = GfEdgeInsets.symmetric(
           horizontal: GfDouble.gf24(),
           vertical: GfDouble.gf12(),
         ),
-        textStyle = GfTextStyle.b4(),
+        textStyle = GfTextStyle.b4(fontWeight: FontWeight.bold),
         height = GfDouble.gf40();
-  //TODO:: check height
   GfButtonScale.large()
       : padding = GfEdgeInsets.symmetric(
           horizontal: GfDouble.gf32(),
           vertical: GfDouble.gf16(),
         ),
-        textStyle = GfTextStyle.b4(),
+        textStyle = GfTextStyle.b4(fontWeight: FontWeight.bold),
         height = GfDouble.gf56();
 }
 
@@ -63,6 +62,19 @@ class GfButton extends StatelessWidget {
   final void Function()? onTap;
   final IconData? leading;
   final IconData? trailing;
+
+  const GfButton({
+    Key? key,
+    required this.onTap,
+    required this.title,
+    required this.scale,
+    required this.size,
+    this.disabled = false,
+    this.busy = false,
+    this.leading,
+    this.trailing,
+  })  : _type = _ButtonType.filled,
+        super(key: key);
 
   const GfButton.filled({
     Key? key,
@@ -122,7 +134,7 @@ class GfButton extends StatelessWidget {
               ),
               side: MaterialStateProperty.all(
                 BorderSide(
-                    color: gfPrimary1Color,
+                    color: disabled ? gfGrey4Color : gfPrimary1Color,
                     width: 1.0,
                     style: BorderStyle.solid),
               ),
@@ -151,7 +163,9 @@ class GfButton extends StatelessWidget {
                         ),
                       Text(
                         title,
-                        style: GfTextStyle.b4(color: gfPrimary1Color),
+                        style: GfTextStyle.b4(
+                            fontWeight: FontWeight.bold,
+                            color: disabled ? gfGrey1Color : gfPrimary1Color),
                       ),
                       if (trailing != null)
                         SizedBox(
@@ -206,7 +220,7 @@ class GfButton extends StatelessWidget {
                         ),
                       Text(
                         title,
-                        style: GfTextStyle.b4(),
+                        style: GfTextStyle.b4(fontWeight: FontWeight.bold),
                       ),
                       if (trailing != null)
                         SizedBox(
@@ -229,8 +243,10 @@ class GfButton extends StatelessWidget {
           child: ElevatedButton(
             style: ButtonStyle(
               padding: MaterialStateProperty.all(scale.padding),
-              overlayColor: MaterialStateProperty.all(gfPrimary3Color),
-              backgroundColor: MaterialStateProperty.all(gfPrimary1Color),
+              overlayColor: MaterialStateProperty.all(
+                  disabled ? gfGrey4Color : gfPrimary3Color),
+              backgroundColor: MaterialStateProperty.all(
+                  disabled ? gfGrey4Color : gfPrimary1Color),
             ),
             onPressed: onTap,
             child: busy
@@ -256,7 +272,8 @@ class GfButton extends StatelessWidget {
                         ),
                       Text(
                         title,
-                        style: GfTextStyle.b4(),
+                        style: GfTextStyle.b4(
+                            color: gfWhiteColor, fontWeight: FontWeight.bold),
                       ),
                       if (trailing != null)
                         SizedBox(
@@ -266,7 +283,7 @@ class GfButton extends StatelessWidget {
                         Icon(
                           trailing,
                           size: scale.textStyle.fontSize! * 1.5,
-                          color: scale.textStyle.color,
+                          color: gfWhiteColor,
                         ),
                     ],
                   ),

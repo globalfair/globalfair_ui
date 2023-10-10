@@ -14,7 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(),
+      theme: ThemeData(
+        fontFamily: 'Lato'
+      ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -30,8 +32,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  double _counter = 0;
   int radioSelected = 0;
+  double slider = 0;
   bool _checkboxVal = false;
   RangeValues _currentRangeValues = const RangeValues(0, 50);
   @override
@@ -47,10 +49,13 @@ class _MyHomePageState extends State<MyHomePage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: GfButton.outline(
-                  scale: GfButtonScale.small(),
-                  size: GfButtonSize.mini(),
+                  scale: GfButtonScale.large(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.medium(),
+                  disabled: false,
                   title: "small",
-                  onTap: () {},
+
+                  onTap: (){},
                 ),
               ),
               Padding(
@@ -108,7 +113,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 48,
                       child: GfIconButton.solid(
                         icon: Icon(Icons.add),
-                        onTap: () {},
+                        onTap: null,
+
                       ),
                     ),
                   ),
@@ -136,30 +142,23 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: GfCheckbox(
-                      onTap: (val) {
-                        setState(() {
-                          _checkboxVal = val!;
-                        });
-                      },
-                      value: _checkboxVal,
+                      onTap: (a) {},
+                      value: false,
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: GfRadioButton<int>(
-                      value: 2,
-                      selectedOption: radioSelected,
-                      onTap: (a) {
-                        setState(() {
-                          radioSelected = a!;
-                        });
-                      },
+                    child: GfRadioButton<bool>(
+                      value: false,
+                      selectedOption: true,
+                      onTap: (a){},
                     ),
                   ),
                   Padding(
@@ -208,8 +207,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 400,
                   height: 48,
                   child: GfSlider(
-                    value: 50,
-                    onTap: (a) {},
+                    value: slider,
+                    divisions: 100,
+                    onTap: (a) {
+                      setState(() {
+                        
+                      slider = a;
+                      });
+                    },
                   ),
                 ),
               ),
@@ -250,7 +255,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: GfTextField.large(
+                child: GfTextField.normal(
                   suffixWidget: Icon(Icons.add),
                   hintText: "Put text",
                   labelText: "label",

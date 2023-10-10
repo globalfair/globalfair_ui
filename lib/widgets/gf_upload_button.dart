@@ -10,7 +10,8 @@ class GfUploadButton extends StatelessWidget {
         children: [
           Image(
             image: AssetImage(
-                "images/upload_icon.png"),
+                 'images/upload_icon.png',
+                            package: 'globalfair_ui',),
             fit: BoxFit.cover,
             height: 100,
             width: 150,

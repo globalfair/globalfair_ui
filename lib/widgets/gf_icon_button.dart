@@ -41,15 +41,13 @@ class GfIconButton extends StatelessWidget {
               child: icon,
               style: ButtonStyle(
                 iconColor: MaterialStateProperty.all(gfWhiteColor),
-                
-                 overlayColor: MaterialStateProperty.resolveWith(
-                      (states) {
-                        return states.contains(MaterialState.pressed)
-                            ? gfBlack1Color
-                            : gfPrimary3Color;
-                      },
-                    ),
-                    
+                overlayColor: MaterialStateProperty.resolveWith(
+                  (states) {
+                    return states.contains(MaterialState.pressed)
+                        ? gfBlack1Color
+                        : gfPrimary3Color;
+                  },
+                ),
                 backgroundColor: MaterialStateProperty.all(
                     onTap == null ? gfGrey1Color : gfPrimary1Color),
               ),
@@ -57,9 +55,11 @@ class GfIconButton extends StatelessWidget {
           )
         : isOutlineButton
             ? Ink(
-                decoration:  ShapeDecoration(
+                decoration: ShapeDecoration(
                   shape: CircleBorder(
-                      side: BorderSide(color:  onTap == null ? gfGrey1Color : gfPrimary1Color, width: 2)),
+                      side: BorderSide(
+                          color: onTap == null ? gfGrey1Color : gfPrimary1Color,
+                          width: 2)),
                 ),
                 child: IconButton(
                   splashRadius: 22,
@@ -67,6 +67,7 @@ class GfIconButton extends StatelessWidget {
                   icon: icon,
                   color: gfPrimary1Color,
                   disabledColor: gfGrey1Color,
+                  highlightColor: gfPrimary6Color,
                   hoverColor: gfPrimary7Color,
                   splashColor: gfPrimary6Color,
                 ),
