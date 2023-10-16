@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:globalfair_ui/shared/app_size.dart';
 
 import '../shared/app_colors.dart';
 
@@ -117,7 +118,7 @@ class GfTag extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(4)),
         color: backgroundColor,
       ),
-      padding: EdgeInsets.all(8),
+      padding: GfEdgeInsets.all(GfDouble.gf4()),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,

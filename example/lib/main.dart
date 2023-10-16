@@ -34,9 +34,8 @@ class _MyHomePageState extends State<MyHomePage> {
   double slider = 0;
   bool _checkboxVal = false;
   List<String> _values = [], selected = [];
-    final TextEditingController _textEditingController = TextEditingController();
-ScrollController controller = ScrollController();
-
+  final TextEditingController _textEditingController = TextEditingController();
+  ScrollController controller = ScrollController();
 
   RangeValues _currentRangeValues = const RangeValues(0, 50);
   @override
@@ -240,18 +239,17 @@ ScrollController controller = ScrollController();
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: GfTextField.normal(
-                    controller: _textEditingController,
-                onFieldSubmitted: (value) {
-                  _values.add(_textEditingController.text);
-                  selected.add(_textEditingController.text);
-                  _textEditingController.clear();
+                  controller: _textEditingController,
+                  onFieldSubmitted: (value) {
+                    _values.add(_textEditingController.text);
+                    selected.add(_textEditingController.text);
+                    _textEditingController.clear();
 
-                  setState(() {
-                    
-                    _values = _values;
-                    selected = selected;
-                  });
-                },
+                    setState(() {
+                      _values = _values;
+                      selected = selected;
+                    });
+                  },
                   prefixWidget: selected.length < 1
                       ? null
                       : Padding(
@@ -259,8 +257,7 @@ ScrollController controller = ScrollController();
                           child: Container(
                             constraints: BoxConstraints(maxWidth: 200),
                             child: SingleChildScrollView(
-                                controller: controller,
-
+                              controller: controller,
                               scrollDirection: Axis.horizontal,
                               child: Row(
                                 children: selected.map(
@@ -269,11 +266,6 @@ ScrollController controller = ScrollController();
                                       avatar: const FlutterLogo(),
                                       elevation: 0,
                                       shadowColor: Colors.teal,
-                                      // pressElevation: 0,
-                                      // backgroundColor: Colors.blue[100],
-                                      // shape: RoundedRectangleBorder(
-                                      //   borderRadius: BorderRadius.circular(7),
-                                      // ),
                                       label: Text(s,
                                           style: TextStyle(
                                               color: Colors.blue[900])),

@@ -85,7 +85,7 @@ class GfSearchTextField extends StatelessWidget {
         controller: controller,
         onFieldSubmitted: onFieldSubmitted,
         decoration: InputDecoration(
-          isDense: true,
+          floatingLabelBehavior: FloatingLabelBehavior.never,
           prefixIcon: prefixWidget == null
               ? null
               : SizedBox(height: 56, child: prefixWidget),
