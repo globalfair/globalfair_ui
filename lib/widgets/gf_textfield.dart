@@ -26,6 +26,7 @@ class GfTextField extends StatelessWidget {
   final int? minLines;
   final Widget? prefixWidget;
   final Widget? suffixWidget;
+  final Function(String)? onFieldSubmitted;
 
   const GfTextField.normal({
     Key? key,
@@ -46,6 +47,7 @@ class GfTextField extends StatelessWidget {
     this.minLines,
     this.prefixWidget,
     this.suffixWidget,
+    this.onFieldSubmitted,
   }) : height = 44, super(key: key);
 
   const GfTextField.large({
@@ -53,6 +55,7 @@ class GfTextField extends StatelessWidget {
     this.controller,
     this.keyboardType,
     this.labelText,
+    this.onFieldSubmitted,
     this.hintText,
     this.textCapitalization = TextCapitalization.none,
     this.textAlign = TextAlign.start,
@@ -74,9 +77,10 @@ class GfTextField extends StatelessWidget {
     return SizedBox(
       width: width,
       height: height,
-      child: TextField(
+      child: TextFormField(
         key: key,
         controller: controller,
+        onFieldSubmitted: onFieldSubmitted,
         decoration: InputDecoration(
           isDense: true,
           prefixIcon: prefixWidget == null? null: SizedBox(height: 56,child: prefixWidget),

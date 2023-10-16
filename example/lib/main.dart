@@ -14,9 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        fontFamily: 'Lato'
-      ),
+      theme: ThemeData(fontFamily: 'Lato'),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -35,6 +33,11 @@ class _MyHomePageState extends State<MyHomePage> {
   int radioSelected = 0;
   double slider = 0;
   bool _checkboxVal = false;
+  List<String> _values = [], selected = [];
+    final TextEditingController _textEditingController = TextEditingController();
+ScrollController controller = ScrollController();
+
+
   RangeValues _currentRangeValues = const RangeValues(0, 50);
   @override
   Widget build(BuildContext context) {
@@ -54,8 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   size: GfButtonSize.medium(),
                   disabled: false,
                   title: "small",
-
-                  onTap: (){},
+                  onTap: () {},
                 ),
               ),
               Padding(
@@ -114,7 +116,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: GfIconButton.solid(
                         icon: Icon(Icons.add),
                         onTap: null,
-
                       ),
                     ),
                   ),
@@ -142,7 +143,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -158,7 +158,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: GfRadioButton<bool>(
                       value: false,
                       selectedOption: true,
-                      onTap: (a){},
+                      onTap: (a) {},
                     ),
                   ),
                   Padding(
@@ -211,8 +211,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     divisions: 100,
                     onTap: (a) {
                       setState(() {
-                        
-                      slider = a;
+                        slider = a;
                       });
                     },
                   ),
@@ -241,7 +240,57 @@ class _MyHomePageState extends State<MyHomePage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: GfTextField.normal(
-                  prefixWidget: Icon(Icons.add),
+                    controller: _textEditingController,
+                onFieldSubmitted: (value) {
+                  _values.add(_textEditingController.text);
+                  selected.add(_textEditingController.text);
+                  _textEditingController.clear();
+
+                  setState(() {
+                    
+                    _values = _values;
+                    selected = selected;
+                  });
+                },
+                  prefixWidget: selected.length < 1
+                      ? null
+                      : Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Container(
+                            constraints: BoxConstraints(maxWidth: 200),
+                            child: SingleChildScrollView(
+                                controller: controller,
+
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: selected.map(
+                                  (s) {
+                                    return Chip(
+                                      avatar: const FlutterLogo(),
+                                      elevation: 0,
+                                      shadowColor: Colors.teal,
+                                      // pressElevation: 0,
+                                      // backgroundColor: Colors.blue[100],
+                                      // shape: RoundedRectangleBorder(
+                                      //   borderRadius: BorderRadius.circular(7),
+                                      // ),
+                                      label: Text(s,
+                                          style: TextStyle(
+                                              color: Colors.blue[900])),
+                                      onDeleted: () {
+                                        setState(
+                                          () {
+                                            selected.remove(s);
+                                          },
+                                        );
+                                      },
+                                    );
+                                  },
+                                ).toList(),
+                              ),
+                            ),
+                          ),
+                        ),
                   hintText: "Put text",
                   labelText: "label",
                 ),
