@@ -424,7 +424,7 @@ ScrollController controller = ScrollController();
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: GfTag.gey(
+                    child: GfTag.grey(
                       label: "grey tag",
                       onSuffixTap: () {},
                       suffix: UniconsLine.times,

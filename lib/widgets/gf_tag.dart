@@ -99,7 +99,7 @@ class GfTag extends StatelessWidget {
         backgroundColor = gfPink4Color,
         super(key: key);
 
-  const GfTag.gey(
+  const GfTag.grey(
       {Key? key,
       this.suffix,
       this.prefix,
