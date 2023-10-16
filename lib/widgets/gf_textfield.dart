@@ -4,9 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:globalfair_ui/shared/app_colors.dart';
 import 'package:globalfair_ui/shared/app_size.dart';
 
-
-
-
 class GfTextField extends StatelessWidget {
   final TextEditingController? controller;
   final TextInputType? keyboardType;
@@ -26,6 +23,7 @@ class GfTextField extends StatelessWidget {
   final int? minLines;
   final Widget? prefixWidget;
   final Widget? suffixWidget;
+  final FocusNode? focusNode;
   final Function(String)? onFieldSubmitted;
 
   const GfTextField.normal({
@@ -33,6 +31,7 @@ class GfTextField extends StatelessWidget {
     this.controller,
     this.keyboardType,
     this.labelText,
+    this.focusNode,
     this.hintText,
     this.textCapitalization = TextCapitalization.none,
     this.textAlign = TextAlign.start,
@@ -48,13 +47,15 @@ class GfTextField extends StatelessWidget {
     this.prefixWidget,
     this.suffixWidget,
     this.onFieldSubmitted,
-  }) : height = 44, super(key: key);
+  })  : height = 44,
+        super(key: key);
 
   const GfTextField.large({
     Key? key,
     this.controller,
     this.keyboardType,
     this.labelText,
+    this.focusNode,
     this.onFieldSubmitted,
     this.hintText,
     this.textCapitalization = TextCapitalization.none,
@@ -70,7 +71,8 @@ class GfTextField extends StatelessWidget {
     this.minLines,
     this.prefixWidget,
     this.suffixWidget,
-  }) : height = 56, super(key: key);
+  })  : height = 56,
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -78,13 +80,18 @@ class GfTextField extends StatelessWidget {
       width: width,
       height: height,
       child: TextFormField(
+        focusNode: focusNode,
         key: key,
         controller: controller,
         onFieldSubmitted: onFieldSubmitted,
         decoration: InputDecoration(
           isDense: true,
-          prefixIcon: prefixWidget == null? null: SizedBox(height: 56,child: prefixWidget),
-          suffixIcon:   suffixWidget == null? null: SizedBox(height: 56,child: suffixWidget),
+          prefixIcon: prefixWidget == null
+              ? null
+              : SizedBox(height: 56, child: prefixWidget),
+          suffixIcon: suffixWidget == null
+              ? null
+              : SizedBox(height: 56, child: suffixWidget),
           labelStyle: TextStyle(color: gfGrey1Color),
           label: Text(labelText ?? ""),
           hintText: hintText,
