@@ -20,7 +20,7 @@ class GfTag extends StatelessWidget {
       this.onPrefixTap,
       this.onSuffixTap})
       : textColor = gfPrimary1Color,
-        backgroundColor = gfPrimary4Color,
+        backgroundColor = gfPrimary6Color,
         super(key: key);
 
   const GfTag.blue(
@@ -31,7 +31,7 @@ class GfTag extends StatelessWidget {
       this.onPrefixTap,
       this.onSuffixTap})
       : textColor = gfPrimary1Color,
-        backgroundColor = gfPrimary4Color,
+        backgroundColor = gfPrimary6Color,
         super(key: key);
 
   const GfTag.red(

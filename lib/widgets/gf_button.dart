@@ -26,21 +26,21 @@ class GfButtonScale {
           horizontal: GfDouble.gf16(),
           vertical: GfDouble.gf8(),
         ),
-        textStyle = GfTextStyle.b4(fontWeight: FontWeight.bold),
+        textStyle = GfTextStyle.b3(fontWeight: FontWeight.bold),
         height = GfDouble.gf32();
   GfButtonScale.medium()
       : padding = GfEdgeInsets.symmetric(
           horizontal: GfDouble.gf24(),
           vertical: GfDouble.gf12(),
         ),
-        textStyle = GfTextStyle.b4(fontWeight: FontWeight.bold),
+        textStyle = GfTextStyle.b3(fontWeight: FontWeight.bold),
         height = GfDouble.gf40();
   GfButtonScale.large()
       : padding = GfEdgeInsets.symmetric(
           horizontal: GfDouble.gf32(),
           vertical: GfDouble.gf16(),
         ),
-        textStyle = GfTextStyle.b4(fontWeight: FontWeight.bold),
+        textStyle = GfTextStyle.b3(fontWeight: FontWeight.bold),
         height = GfDouble.gf56();
 }
 
@@ -164,7 +164,7 @@ class GfButton extends StatelessWidget {
                         ),
                       Text(
                         title,
-                        style: GfTextStyle.b4(
+                        style: GfTextStyle.b3(
                             fontWeight: FontWeight.bold,
                             color: disabled ? gfGrey1Color : gfPrimary1Color),
                       ),
@@ -222,7 +222,7 @@ class GfButton extends StatelessWidget {
                         ),
                       Text(
                         title,
-                        style: GfTextStyle.b4(fontWeight: FontWeight.bold, color: disabled ? gfGrey1Color : gfPrimary1Color),
+                        style: GfTextStyle.b3(fontWeight: FontWeight.bold, color: disabled ? gfGrey1Color : gfPrimary1Color),
                       ),
                       if (trailing != null)
                         SizedBox(
@@ -274,7 +274,7 @@ class GfButton extends StatelessWidget {
                         ),
                       Text(
                         title,
-                        style: GfTextStyle.b4(
+                        style: GfTextStyle.b3(
                             color: gfWhiteColor, fontWeight: FontWeight.bold),
                       ),
                       if (trailing != null)

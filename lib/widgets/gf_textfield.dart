@@ -51,7 +51,7 @@ class GfTextField extends StatefulWidget {
     this.validator,
     this.errorColor,
     this.onFieldSubmitted,
-  })  : height = 44+2,
+  })  : height = 48,
         super(key: key);
 
   const GfTextField.large({
@@ -77,7 +77,7 @@ class GfTextField extends StatefulWidget {
     this.validator,
     this.errorColor,
     this.suffixWidget,
-  })  : height = 56+2,
+  })  : height = 60,
         super(key: key);
 
   @override
@@ -90,75 +90,87 @@ class _GfTextFieldState extends State<GfTextField> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        SizedBox(
+    return SizedBox(
+      width: widget.width,
+      height: widget.height! + 15,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SizedBox(
             width: widget.width,
-    height: widget.height,
-          child: TextFormField(
-            focusNode: widget.focusNode,
-            key: widget.key,
-            controller: widget.controller,
-            onFieldSubmitted: widget.onFieldSubmitted,
-            decoration: InputDecoration(
-              helperText: " ",
-              helperStyle: const TextStyle(fontSize: 0),
-              errorStyle: const TextStyle(fontSize: 0),
-              isDense: false,
-              prefixIcon: widget.prefixWidget == null
-                  ? null
-                  : SizedBox(
-                      height: widget.height! - 12, child: widget.prefixWidget),
-              suffixIcon: widget.suffixWidget == null
-                  ? null
-                  : SizedBox(
-                      height: widget.height! - 12, child: widget.suffixWidget),
-              labelStyle: TextStyle(color: gfGrey1Color),
-              label: Text(widget.labelText ?? ""),
-              hintText: widget.hintText,
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: gfPrimary1Color),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(GfDouble.gf4().size),
+            height: widget.height,
+            child: TextFormField(
+              focusNode: widget.focusNode,
+              key: widget.key,
+              controller: widget.controller,
+              onFieldSubmitted: widget.onFieldSubmitted,
+              decoration: InputDecoration(
+                helperText: " ",
+                helperStyle: const TextStyle(fontSize: 0),
+                errorStyle: const TextStyle(fontSize: 0),
+                isDense: false,
+                prefixIcon: widget.prefixWidget == null
+                    ? null
+                    : SizedBox(
+                        height: widget.height! - 10,
+                        child: widget.prefixWidget),
+                suffixIcon: widget.suffixWidget == null
+                    ? null
+                    : SizedBox(
+                        height: widget.height! - 10,
+                        child: widget.suffixWidget),
+                labelStyle: TextStyle(color: gfGrey1Color),
+                label: Text(widget.labelText ?? ""),
+                hintText: widget.hintText,
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: gfPrimary1Color),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(GfDouble.gf4().size),
+                  ),
+                ),
+                errorBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(color: widget.errorColor ?? gfError1Color),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(GfDouble.gf4().size),
+                  ),
+                ),
+                focusedErrorBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(color: widget.errorColor ?? gfError1Color),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(GfDouble.gf4().size),
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: gfGrey4Color),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(GfDouble.gf4().size),
+                  ),
                 ),
               ),
-              errorBorder: OutlineInputBorder(
-                borderSide:
-                    BorderSide(color: widget.errorColor ?? gfError1Color),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(GfDouble.gf4().size),
-                ),
-              ),
-              focusedErrorBorder: OutlineInputBorder(
-                borderSide:
-                    BorderSide(color: widget.errorColor ?? gfError1Color),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(GfDouble.gf4().size),
-                ),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: gfGrey4Color),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(GfDouble.gf4().size),
-                ),
-              ),
+              keyboardType: widget.keyboardType,
+              textCapitalization: widget.textCapitalization,
+              textAlign: widget.textAlign,
+              validator: (a) {
+                if (widget.validator != null) result = widget.validator!(a);
+                setState(() {
+                  if (result != null) isValid = false;
+                });
+                return result;
+              },
+              textDirection: widget.textDirection,
             ),
-            keyboardType: widget.keyboardType,
-            textCapitalization: widget.textCapitalization,
-            textAlign: widget.textAlign,
-            validator: (a) {
-              if (widget.validator != null) result = widget.validator!(a);
-              setState(() {
-                if (result != null) isValid = false;
-              });
-              return result;
-            },
-            textDirection: widget.textDirection,
           ),
-        ),
-        if (!isValid) Text(result ?? ""),
-      ],
+          if (!isValid)
+            Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  result ?? "",
+                  style: TextStyle(fontSize: 12, color: gfError1Color),
+                )),
+        ],
+      ),
     );
   }
 }
