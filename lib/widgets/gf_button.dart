@@ -145,7 +145,7 @@ class GfButton extends StatelessWidget {
                     width: 20,
                     height: 20,
                     child: CircularProgressIndicator(
-                      color: gfPrimary1Color,
+                      color: disabled ? gfGrey4Color : gfPrimary1Color,
                     ),
                   )
                 : Row(
@@ -155,7 +155,8 @@ class GfButton extends StatelessWidget {
                         Icon(
                           leading,
                           size: scale.textStyle.fontSize! * 1.5,
-                          color: scale.textStyle.color,
+                          color:
+                              disabled ? gfGrey4Color : scale.textStyle.color,
                         ),
                       if (leading != null)
                         SizedBox(
@@ -175,7 +176,8 @@ class GfButton extends StatelessWidget {
                         Icon(
                           trailing,
                           size: scale.textStyle.fontSize! * 1.5,
-                          color: scale.textStyle.color,
+                          color:
+                              disabled ? gfGrey4Color : scale.textStyle.color,
                         ),
                     ],
                   ),
@@ -202,7 +204,7 @@ class GfButton extends StatelessWidget {
                     width: 20,
                     height: 20,
                     child: CircularProgressIndicator(
-                      color: gfPrimary1Color,
+                      color:  disabled ? gfGrey4Color :  gfPrimary1Color,
                     ),
                   )
                 : Row(
@@ -212,7 +214,7 @@ class GfButton extends StatelessWidget {
                         Icon(
                           leading,
                           size: scale.textStyle.fontSize,
-                          color: scale.textStyle.color,
+                          color: disabled ? gfGrey4Color :  scale.textStyle.color,
                         ),
                       if (leading != null)
                         SizedBox(
@@ -220,7 +222,7 @@ class GfButton extends StatelessWidget {
                         ),
                       Text(
                         title,
-                        style: GfTextStyle.b4(fontWeight: FontWeight.bold),
+                        style: GfTextStyle.b4(fontWeight: FontWeight.bold, color: disabled ? gfGrey1Color : gfPrimary1Color),
                       ),
                       if (trailing != null)
                         SizedBox(
@@ -230,7 +232,7 @@ class GfButton extends StatelessWidget {
                         Icon(
                           trailing,
                           size: scale.textStyle.fontSize! * 1.5,
-                          color: scale.textStyle.color,
+                          color: disabled ? gfGrey4Color :  scale.textStyle.color,
                         ),
                     ],
                   ),

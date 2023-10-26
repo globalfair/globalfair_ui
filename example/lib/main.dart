@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:globalfair_ui/globalfair_ui.dart';
+import 'package:globalfair_ui/shared/app_colors.dart';
+import 'package:globalfair_ui/shared/styles.dart';
 import 'package:globalfair_ui/widgets/gf_textfield.dart';
 import 'package:unicons/unicons.dart';
 
@@ -34,6 +36,9 @@ class _MyHomePageState extends State<MyHomePage> {
   double slider = 0;
   bool _checkboxVal = false;
   List<String> _values = [], selected = [];
+  String dropdownValue = 'Dog';
+  IconData dropdownIconValue = Icons.person;
+
   final TextEditingController _textEditingController = TextEditingController();
   ScrollController controller = ScrollController();
 
@@ -50,10 +55,16 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Outline buttons",
+                  style: GfTextStyle.b1(),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: GfButton.outline(
-                  scale: GfButtonScale.large(),
-                  trailing: Icons.add,
-                  size: GfButtonSize.medium(),
+                  scale: GfButtonScale.small(),
+                  size: GfButtonSize.mini(),
                   disabled: false,
                   title: "small",
                   onTap: () {},
@@ -62,8 +73,121 @@ class _MyHomePageState extends State<MyHomePage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: GfButton.outline(
-                  scale: GfButtonScale.large(),
+                  trailing: Icons.add,
+                  scale: GfButtonScale.small(),
                   size: GfButtonSize.mini(),
+                  disabled: false,
+                  title: "small",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.outline(
+                  leading: Icons.add,
+                  scale: GfButtonScale.small(),
+                  size: GfButtonSize.mini(),
+                  disabled: false,
+                  title: "small",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.outline(
+                  scale: GfButtonScale.small(),
+                  size: GfButtonSize.mini(),
+                  disabled: true,
+                  title: "small",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.outline(
+                  scale: GfButtonScale.small(),
+                  size: GfButtonSize.mini(),
+                  busy: true,
+                  title: "small",
+                  disabled: false,
+                  onTap: null,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.outline(
+                  scale: GfButtonScale.small(),
+                  size: GfButtonSize.mini(),
+                  busy: true,
+                  title: "small",
+                  disabled: true,
+                  onTap: null,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.outline(
+                  scale: GfButtonScale.medium(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.medium(),
+                  disabled: false,
+                  title: "medium",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.outline(
+                  scale: GfButtonScale.medium(),
+                  leading: Icons.add,
+                  size: GfButtonSize.medium(),
+                  disabled: false,
+                  title: "medium",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.outline(
+                  scale: GfButtonScale.medium(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.medium(),
+                  disabled: true,
+                  title: "medium",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.outline(
+                  scale: GfButtonScale.medium(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.medium(),
+                  disabled: false,
+                  title: "medium",
+                  busy: true,
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.outline(
+                  scale: GfButtonScale.medium(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.medium(),
+                  disabled: true,
+                  title: "medium",
+                  busy: true,
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.outline(
+                  scale: GfButtonScale.large(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.full(),
+                  disabled: false,
                   title: "large",
                   onTap: () {},
                 ),
@@ -72,25 +196,426 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.all(8.0),
                 child: GfButton.outline(
                   scale: GfButtonScale.large(),
+                  leading: Icons.add,
                   size: GfButtonSize.full(),
+                  disabled: false,
                   title: "large",
-                  disabled: true,
                   onTap: () {},
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: GfTooltip(
-                  headingText: "Loading button ",
-                  subHeading: "this is what loading button looks like ",
-                  child: GfButton.outline(
-                    scale: GfButtonScale.medium(),
-                    size: GfButtonSize.medium(),
-                    title: "large",
-                    busy: true,
-                    disabled: true,
-                    onTap: () {},
-                  ),
+                child: GfButton.outline(
+                  scale: GfButtonScale.large(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.full(),
+                  disabled: true,
+                  title: "large",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.outline(
+                  scale: GfButtonScale.large(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.full(),
+                  disabled: false,
+                  title: "large",
+                  busy: true,
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.outline(
+                  scale: GfButtonScale.large(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.full(),
+                  disabled: true,
+                  title: "large",
+                  busy: true,
+                  onTap: () {},
+                ),
+              ),
+              Divider(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "filled buttons",
+                  style: GfTextStyle.b1(),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.filled(
+                  scale: GfButtonScale.small(),
+                  size: GfButtonSize.mini(),
+                  disabled: false,
+                  title: "small",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.filled(
+                  trailing: Icons.add,
+                  scale: GfButtonScale.small(),
+                  size: GfButtonSize.mini(),
+                  disabled: false,
+                  title: "small",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.filled(
+                  leading: Icons.add,
+                  scale: GfButtonScale.small(),
+                  size: GfButtonSize.mini(),
+                  disabled: false,
+                  title: "small",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.filled(
+                  scale: GfButtonScale.small(),
+                  size: GfButtonSize.mini(),
+                  disabled: true,
+                  title: "small",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.filled(
+                  scale: GfButtonScale.small(),
+                  size: GfButtonSize.mini(),
+                  busy: true,
+                  title: "small",
+                  disabled: false,
+                  onTap: null,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.filled(
+                  scale: GfButtonScale.small(),
+                  size: GfButtonSize.mini(),
+                  busy: true,
+                  title: "small",
+                  disabled: true,
+                  onTap: null,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.filled(
+                  scale: GfButtonScale.medium(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.medium(),
+                  disabled: false,
+                  title: "medium",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.filled(
+                  scale: GfButtonScale.medium(),
+                  leading: Icons.add,
+                  size: GfButtonSize.medium(),
+                  disabled: false,
+                  title: "medium",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.filled(
+                  scale: GfButtonScale.medium(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.medium(),
+                  disabled: true,
+                  title: "medium",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.filled(
+                  scale: GfButtonScale.medium(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.medium(),
+                  disabled: false,
+                  title: "medium",
+                  busy: true,
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.filled(
+                  scale: GfButtonScale.medium(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.medium(),
+                  disabled: true,
+                  title: "medium",
+                  busy: true,
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.filled(
+                  scale: GfButtonScale.large(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.full(),
+                  disabled: false,
+                  title: "large",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.filled(
+                  scale: GfButtonScale.large(),
+                  leading: Icons.add,
+                  size: GfButtonSize.full(),
+                  disabled: false,
+                  title: "large",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.filled(
+                  scale: GfButtonScale.large(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.full(),
+                  disabled: true,
+                  title: "large",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.filled(
+                  scale: GfButtonScale.large(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.full(),
+                  disabled: false,
+                  title: "large",
+                  busy: true,
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.filled(
+                  scale: GfButtonScale.large(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.full(),
+                  disabled: true,
+                  title: "large",
+                  busy: true,
+                  onTap: () {},
+                ),
+              ),
+              Divider(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "text buttons",
+                  style: GfTextStyle.b1(),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.text(
+                  scale: GfButtonScale.small(),
+                  size: GfButtonSize.mini(),
+                  disabled: false,
+                  title: "small",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.text(
+                  trailing: Icons.add,
+                  scale: GfButtonScale.small(),
+                  size: GfButtonSize.mini(),
+                  disabled: false,
+                  title: "small",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.text(
+                  leading: Icons.add,
+                  scale: GfButtonScale.small(),
+                  size: GfButtonSize.mini(),
+                  disabled: false,
+                  title: "small",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.text(
+                  scale: GfButtonScale.small(),
+                  size: GfButtonSize.mini(),
+                  disabled: true,
+                  title: "small",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.text(
+                  scale: GfButtonScale.small(),
+                  size: GfButtonSize.mini(),
+                  busy: true,
+                  title: "small",
+                  disabled: false,
+                  onTap: null,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.text(
+                  scale: GfButtonScale.small(),
+                  size: GfButtonSize.mini(),
+                  busy: true,
+                  title: "small",
+                  disabled: true,
+                  onTap: null,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.text(
+                  scale: GfButtonScale.medium(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.medium(),
+                  disabled: false,
+                  title: "medium",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.text(
+                  scale: GfButtonScale.medium(),
+                  leading: Icons.add,
+                  size: GfButtonSize.medium(),
+                  disabled: false,
+                  title: "medium",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.text(
+                  scale: GfButtonScale.medium(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.medium(),
+                  disabled: true,
+                  title: "medium",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.text(
+                  scale: GfButtonScale.medium(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.medium(),
+                  disabled: false,
+                  title: "medium",
+                  busy: true,
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.text(
+                  scale: GfButtonScale.medium(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.medium(),
+                  disabled: true,
+                  title: "medium",
+                  busy: true,
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.text(
+                  scale: GfButtonScale.large(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.full(),
+                  disabled: false,
+                  title: "large",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.text(
+                  scale: GfButtonScale.large(),
+                  leading: Icons.add,
+                  size: GfButtonSize.full(),
+                  disabled: false,
+                  title: "large",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.text(
+                  scale: GfButtonScale.large(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.full(),
+                  disabled: true,
+                  title: "large",
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.text(
+                  scale: GfButtonScale.large(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.full(),
+                  disabled: false,
+                  title: "large",
+                  busy: true,
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfButton.text(
+                  scale: GfButtonScale.large(),
+                  trailing: Icons.add,
+                  size: GfButtonSize.full(),
+                  disabled: true,
+                  title: "large",
+                  busy: true,
+                  onTap: () {},
+                ),
+              ),
+              Divider(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Icon buttons",
+                  style: GfTextStyle.b1(),
                 ),
               ),
               Row(
@@ -102,6 +627,28 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 48,
                       height: 48,
                       child: GfIconButton.outline(
+                        icon: Icon(Icons.add),
+                        onTap: () {},
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: 48,
+                      height: 48,
+                      child: GfIconButton.outline(
+                        icon: Icon(Icons.add),
+                        onTap: null,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: 48,
+                      height: 48,
+                      child: GfIconButton.solid(
                         icon: Icon(Icons.add),
                         onTap: () {},
                       ),
@@ -134,13 +681,21 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: SizedBox(
                       width: 48,
                       height: 48,
-                      child: GfIconButton.outline(
+                      child: GfIconButton(
                         icon: Icon(Icons.add),
                         onTap: null,
                       ),
                     ),
                   ),
                 ],
+              ),
+              Divider(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Checkbox and radio buttons",
+                  style: GfTextStyle.b1(),
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -190,6 +745,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
+              Divider(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Sliders",
+                  style: GfTextStyle.b4(),
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
@@ -223,7 +786,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: GfRangeSlider(
                     values: _currentRangeValues,
                     max: 100,
-                    divisions: 5,
+                    divisions: 10,
                     labels: RangeLabels(
                       _currentRangeValues.start.round().toString(),
                       _currentRangeValues.end.round().toString(),
@@ -238,53 +801,25 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: GfTextField.normal(
-                  controller: _textEditingController,
-                  onFieldSubmitted: (value) {
-                    _values.add(_textEditingController.text);
-                    selected.add(_textEditingController.text);
-                    _textEditingController.clear();
-
-                    setState(() {
-                      _values = _values;
-                      selected = selected;
-                    });
-                  },
-                  prefixWidget: selected.length < 1
-                      ? null
-                      : Padding(
-                          padding: const EdgeInsets.only(left: 10, right: 10),
-                          child: Container(
-                            constraints: BoxConstraints(maxWidth: 200),
-                            child: SingleChildScrollView(
-                              controller: controller,
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                children: selected.map(
-                                  (s) {
-                                    return Chip(
-                                      avatar: const FlutterLogo(),
-                                      elevation: 0,
-                                      shadowColor: Colors.teal,
-                                      label: Text(s,
-                                          style: TextStyle(
-                                              color: Colors.blue[900])),
-                                      onDeleted: () {
-                                        setState(
-                                          () {
-                                            selected.remove(s);
-                                          },
-                                        );
-                                      },
-                                    );
-                                  },
-                                ).toList(),
-                              ),
-                            ),
-                          ),
-                        ),
-                  hintText: "Put text",
-                  labelText: "label",
+                child: SizedBox(
+                  width: 200,
+                  child: GfRangeSlider(
+                      values: const RangeValues(0, 60),
+                      max: 100,
+                      divisions: 10,
+                      labels: RangeLabels(
+                        _currentRangeValues.start.round().toString(),
+                        _currentRangeValues.end.round().toString(),
+                      ),
+                      onTap: null),
+                ),
+              ),
+              Divider(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "TextField",
+                  style: GfTextStyle.b1(),
                 ),
               ),
               Padding(
@@ -296,8 +831,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: GfTextField.normal(
-                  suffixWidget: Icon(Icons.add),
+                child: GfTextField.large(
+                  prefixWidget: Icon(Icons.person),
                   hintText: "Put text",
                   labelText: "label",
                 ),
@@ -305,8 +840,25 @@ class _MyHomePageState extends State<MyHomePage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: GfTextField.large(
+                  suffixWidget: Icon(Icons.person),
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.large(
+                  prefixWidget: Icon(Icons.person),
+                  suffixWidget: Icon(UniconsLine.times),
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.large(
+                  prefixWidget: Icon(Icons.email),
                   suffixWidget: GfButton.filled(
-                    trailing: Icons.arrow_forward,
                     onTap: () {},
                     title: "Submit",
                     scale: GfButtonScale.small(),
@@ -321,14 +873,457 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: GfTextField.large(
                   prefixWidget: Icon(Icons.person),
                   suffixWidget: GfButton.filled(
-                    trailing: Icons.arrow_forward,
+                    trailing: Icons.search,
                     onTap: () {},
-                    title: "Submit button",
+                    title: "",
                     scale: GfButtonScale.small(),
-                    size: GfButtonSize.medium(),
+                    size: GfButtonSize.mini(),
                   ),
                   hintText: "Put text",
                   labelText: "label",
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.large(
+                  prefixWidget: Icon(Icons.person),
+                  suffixWidget: SizedBox(
+                    width: 100,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border(
+                          left: BorderSide(width: 2.0, color: gfGrey6Color),
+                          top:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                          right:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                          bottom:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                        ),
+                      ),
+                      child: DropdownButtonFormField(
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            filled: false,
+                            fillColor: Colors.white,
+                            contentPadding: EdgeInsets.only(left: 20)),
+                        value: dropdownValue,
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            dropdownValue = newValue!;
+                          });
+                        },
+                        items: <String>['Dog', 'Cat', 'Tiger', 'Lion']
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(
+                              value,
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                  ),
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.large(
+                  suffixWidget: SizedBox(
+                    width: 100,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border(
+                          left: BorderSide(width: 2.0, color: gfGrey6Color),
+                          top:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                          right:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                          bottom:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                        ),
+                      ),
+                      child: DropdownButtonFormField(
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            filled: false,
+                            fillColor: Colors.white,
+                            contentPadding: EdgeInsets.only(left: 20)),
+                        value: dropdownValue,
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            dropdownValue = newValue!;
+                          });
+                        },
+                        items: <String>['Dog', 'Cat', 'Tiger', 'Lion']
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(
+                              value,
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                  ),
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.large(
+                  prefixWidget: Icon(Icons.person),
+                  suffixWidget: SizedBox(
+                    width: 100,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border(
+                          left: BorderSide(width: 2.0, color: gfGrey6Color),
+                          top:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                          right:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                          bottom:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                        ),
+                      ),
+                      child: DropdownButtonFormField(
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            filled: false,
+                            fillColor: Colors.white,
+                            contentPadding: EdgeInsets.only(left: 20)),
+                        value: dropdownIconValue,
+                        onChanged: (IconData? newValue) {
+                          setState(() {
+                            dropdownIconValue = newValue!;
+                          });
+                        },
+                        items: <IconData>[
+                          Icons.person,
+                          Icons.home,
+                          Icons.ac_unit_rounded
+                        ].map<DropdownMenuItem<IconData>>((IconData value) {
+                          return DropdownMenuItem<IconData>(
+                            value: value,
+                            child: Icon(
+                              value,
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                  ),
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.large(
+                  prefixWidget: SizedBox(
+                    width: 100,
+                    child: Container(
+                      margin: EdgeInsets.only(right: 10),
+                      decoration: BoxDecoration(
+                        border: Border(
+                          right: BorderSide(width: 2.0, color: gfGrey6Color),
+                          top:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                          left:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                          bottom:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                        ),
+                      ),
+                      child: DropdownButtonFormField(
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            filled: false,
+                            fillColor: Colors.white,
+                            contentPadding: EdgeInsets.only(left: 20)),
+                        value: dropdownValue,
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            dropdownValue = newValue!;
+                          });
+                        },
+                        items: <String>['Dog', 'Cat', 'Tiger', 'Lion']
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(
+                              value,
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                  ),
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.normal(
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.normal(
+                  prefixWidget: Icon(Icons.person),
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.normal(
+                  suffixWidget: Icon(Icons.person),
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.normal(
+                  prefixWidget: Icon(Icons.person),
+                  suffixWidget: Icon(UniconsLine.times),
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.normal(
+                  prefixWidget: Icon(Icons.email),
+                  suffixWidget: GfButton.filled(
+                    onTap: () {},
+                    title: "Submit",
+                    scale: GfButtonScale.small(),
+                    size: GfButtonSize.mini(),
+                  ),
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.normal(
+                  prefixWidget: Icon(Icons.person),
+                  suffixWidget: GfButton.filled(
+                    trailing: Icons.search,
+                    onTap: () {},
+                    title: "",
+                    scale: GfButtonScale.small(),
+                    size: GfButtonSize.mini(),
+                  ),
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.normal(
+                  prefixWidget: Icon(Icons.person),
+                  suffixWidget: SizedBox(
+                    width: 100,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border(
+                          left: BorderSide(width: 2.0, color: gfGrey6Color),
+                          top:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                          right:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                          bottom:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                        ),
+                      ),
+                      child: DropdownButtonFormField(
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            filled: false,
+                            fillColor: Colors.white,
+                            contentPadding: EdgeInsets.only(left: 20)),
+                        value: dropdownValue,
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            dropdownValue = newValue!;
+                          });
+                        },
+                        items: <String>['Dog', 'Cat', 'Tiger', 'Lion']
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(
+                              value,
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                  ),
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.normal(
+                  suffixWidget: SizedBox(
+                    width: 100,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border(
+                          left: BorderSide(width: 2.0, color: gfGrey6Color),
+                          top:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                          right:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                          bottom:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                        ),
+                      ),
+                      child: DropdownButtonFormField(
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            filled: false,
+                            fillColor: Colors.white,
+                            contentPadding: EdgeInsets.only(left: 20)),
+                        value: dropdownValue,
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            dropdownValue = newValue!;
+                          });
+                        },
+                        items: <String>['Dog', 'Cat', 'Tiger', 'Lion']
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(
+                              value,
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                  ),
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GfTextField.normal(
+                  prefixWidget: Icon(Icons.person),
+                  suffixWidget: SizedBox(
+                    width: 100,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border(
+                          left: BorderSide(width: 2.0, color: gfGrey6Color),
+                          top:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                          right:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                          bottom:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                        ),
+                      ),
+                      child: DropdownButtonFormField(
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            filled: false,
+                            fillColor: Colors.white,
+                            contentPadding: EdgeInsets.only(left: 20)),
+                        value: dropdownIconValue,
+                        onChanged: (IconData? newValue) {
+                          setState(() {
+                            dropdownIconValue = newValue!;
+                          });
+                        },
+                        items: <IconData>[
+                          Icons.person,
+                          Icons.home,
+                          Icons.ac_unit_rounded
+                        ].map<DropdownMenuItem<IconData>>((IconData value) {
+                          return DropdownMenuItem<IconData>(
+                            value: value,
+                            child: Icon(
+                              value,
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                  ),
+                  hintText: "Put text",
+                  labelText: "label",
+                ),
+              ),
+              Form(
+                autovalidateMode: AutovalidateMode.always,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: GfTextField.normal(
+                    validator: (String? value) {
+                      if (value != null &&
+                          !(value.length > 5) &&
+                          value.isNotEmpty) {
+                        return "Password should contain more than 5 characters";
+                      }
+                      return null;
+                    },
+                    prefixWidget: Container(
+                      width: 100,
+                      padding: EdgeInsets.zero,
+                      margin: EdgeInsets.only(right: 10),
+                      decoration: BoxDecoration(
+                        border: Border(
+                          right: BorderSide(width: 2.0, color: gfGrey6Color),
+                          top:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                          left:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                          bottom:
+                              BorderSide(width: 1.0, color: Colors.transparent),
+                        ),
+                      ),
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton(
+                          value: dropdownValue,
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              dropdownValue = newValue!;
+                            });
+                          },
+                          items: <String>['Dog', 'Cat', 'Tiger', 'Lion']
+                              .map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 8.0),
+                                child: Text(
+                                  value,
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                      ),
+                    ),
+                    hintText: "Put text",
+                    labelText: "label",
+                  ),
                 ),
               ),
               Row(
