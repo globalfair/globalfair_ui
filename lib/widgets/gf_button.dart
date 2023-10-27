@@ -142,8 +142,8 @@ class GfButton extends StatelessWidget {
             onPressed: onTap,
             child: busy
                 ? SizedBox(
-                    width: 20,
-                    height: 20,
+                    width: scale.height.size * 0.5,
+                    height: scale.height.size * 0.5,
                     child: CircularProgressIndicator(
                       color: disabled ? gfGrey4Color : gfPrimary1Color,
                     ),
@@ -154,7 +154,7 @@ class GfButton extends StatelessWidget {
                       if (leading != null)
                         Icon(
                           leading,
-                          size: scale.textStyle.fontSize! * 1.5,
+                          size: scale.textStyle.fontSize! * 1.2,
                           color:
                               disabled ? gfGrey4Color : scale.textStyle.color,
                         ),
@@ -164,8 +164,10 @@ class GfButton extends StatelessWidget {
                         ),
                       Text(
                         title,
-                        style: GfTextStyle.b3(
-                            fontWeight: FontWeight.bold,
+                        style: TextStyle(
+                            fontSize: scale.textStyle.fontSize,
+                            fontWeight:
+                                scale.textStyle.fontWeight ?? FontWeight.bold,
                             color: disabled ? gfGrey1Color : gfPrimary1Color),
                       ),
                       if (trailing != null)
@@ -175,7 +177,7 @@ class GfButton extends StatelessWidget {
                       if (trailing != null)
                         Icon(
                           trailing,
-                          size: scale.textStyle.fontSize! * 1.5,
+                          size: scale.textStyle.fontSize! * 1.2,
                           color:
                               disabled ? gfGrey4Color : scale.textStyle.color,
                         ),
@@ -201,10 +203,10 @@ class GfButton extends StatelessWidget {
             onPressed: onTap,
             child: busy
                 ? SizedBox(
-                    width: 20,
-                    height: 20,
+                    width: scale.height.size * 0.5,
+                    height: scale.height.size * 0.5,
                     child: CircularProgressIndicator(
-                      color:  disabled ? gfGrey4Color :  gfPrimary1Color,
+                      color: disabled ? gfGrey4Color : gfPrimary1Color,
                     ),
                   )
                 : Row(
@@ -213,8 +215,9 @@ class GfButton extends StatelessWidget {
                       if (leading != null)
                         Icon(
                           leading,
-                          size: scale.textStyle.fontSize,
-                          color: disabled ? gfGrey4Color :  scale.textStyle.color,
+                          size: scale.textStyle.fontSize! * 1.2,
+                          color:
+                              disabled ? gfGrey4Color : scale.textStyle.color,
                         ),
                       if (leading != null)
                         SizedBox(
@@ -222,7 +225,11 @@ class GfButton extends StatelessWidget {
                         ),
                       Text(
                         title,
-                        style: GfTextStyle.b3(fontWeight: FontWeight.bold, color: disabled ? gfGrey1Color : gfPrimary1Color),
+                        style: TextStyle(
+                            fontSize: scale.textStyle.fontSize,
+                            fontWeight:
+                                scale.textStyle.fontWeight ?? FontWeight.bold,
+                            color: disabled ? gfGrey1Color : gfPrimary1Color),
                       ),
                       if (trailing != null)
                         SizedBox(
@@ -231,8 +238,9 @@ class GfButton extends StatelessWidget {
                       if (trailing != null)
                         Icon(
                           trailing,
-                          size: scale.textStyle.fontSize! * 1.5,
-                          color: disabled ? gfGrey4Color :  scale.textStyle.color,
+                          size: scale.textStyle.fontSize! * 1.2,
+                          color:
+                              disabled ? gfGrey4Color : scale.textStyle.color,
                         ),
                     ],
                   ),
@@ -253,8 +261,8 @@ class GfButton extends StatelessWidget {
             onPressed: onTap,
             child: busy
                 ? SizedBox(
-                    width: 20,
-                    height: 20,
+                    width: scale.height.size * 0.5,
+                    height: scale.height.size * 0.5,
                     child: CircularProgressIndicator(
                       color: gfWhiteColor,
                     ),
@@ -265,7 +273,7 @@ class GfButton extends StatelessWidget {
                       if (leading != null)
                         Icon(
                           leading,
-                          size: scale.textStyle.fontSize,
+                          size: scale.textStyle.fontSize! * 1.2,
                           color: scale.textStyle.color,
                         ),
                       if (leading != null)
@@ -274,8 +282,11 @@ class GfButton extends StatelessWidget {
                         ),
                       Text(
                         title,
-                        style: GfTextStyle.b3(
-                            color: gfWhiteColor, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: scale.textStyle.fontSize,
+                            fontWeight:
+                                scale.textStyle.fontWeight ?? FontWeight.bold,
+                            color: gfWhiteColor),
                       ),
                       if (trailing != null)
                         SizedBox(
@@ -284,7 +295,7 @@ class GfButton extends StatelessWidget {
                       if (trailing != null)
                         Icon(
                           trailing,
-                          size: scale.textStyle.fontSize! * 1.5,
+                          size: scale.textStyle.fontSize! * 1.2,
                           color: gfWhiteColor,
                         ),
                     ],

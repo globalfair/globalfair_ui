@@ -92,7 +92,7 @@ class _GfTextFieldState extends State<GfTextField> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: widget.width,
-      height: widget.height! + 15,
+      height: widget.height! * 1.3,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -112,12 +112,12 @@ class _GfTextFieldState extends State<GfTextField> {
                 prefixIcon: widget.prefixWidget == null
                     ? null
                     : SizedBox(
-                        height: widget.height! - 10,
+                        height: widget.height! * 0.85,
                         child: widget.prefixWidget),
                 suffixIcon: widget.suffixWidget == null
                     ? null
                     : SizedBox(
-                        height: widget.height! - 10,
+                        height: widget.height! * 0.85,
                         child: widget.suffixWidget),
                 labelStyle: TextStyle(color: gfGrey1Color),
                 label: Text(widget.labelText ?? ""),

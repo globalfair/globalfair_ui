@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:globalfair_ui/globalfair_ui.dart';
 import 'package:globalfair_ui/shared/app_colors.dart';
 import 'package:globalfair_ui/shared/styles.dart';
@@ -620,76 +621,79 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: GfTextStyle.b1(),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                        width: 48,
-                        height: 48,
-                        child: GfIconButton.outline(
-                          icon: Icon(Icons.add),
-                          onTap: () {},
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          width: 48,
+                          height: 48,
+                          child: GfIconButton.outline(
+                            icon: Icon(Icons.add),
+                            onTap: () {},
+                          ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                        width: 48,
-                        height: 48,
-                        child: GfIconButton.outline(
-                          icon: Icon(Icons.add),
-                          onTap: null,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          width: 48,
+                          height: 48,
+                          child: GfIconButton.outline(
+                            icon: Icon(Icons.add),
+                            onTap: null,
+                          ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                        width: 48,
-                        height: 48,
-                        child: GfIconButton.solid(
-                          icon: Icon(Icons.add),
-                          onTap: () {},
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          width: 48,
+                          height: 48,
+                          child: GfIconButton.solid(
+                            icon: Icon(Icons.add),
+                            onTap: () {},
+                          ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                        width: 48,
-                        height: 48,
-                        child: GfIconButton.solid(
-                          icon: Icon(Icons.add),
-                          onTap: null,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          width: 48,
+                          height: 48,
+                          child: GfIconButton.solid(
+                            icon: Icon(Icons.add),
+                            onTap: null,
+                          ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                        width: 48,
-                        height: 48,
-                        child: GfIconButton(
-                          icon: Icon(Icons.add),
-                          onTap: () {},
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          width: 48,
+                          height: 48,
+                          child: GfIconButton(
+                            icon: Icon(Icons.add),
+                            onTap: () {},
+                          ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                        width: 48,
-                        height: 48,
-                        child: GfIconButton(
-                          icon: Icon(Icons.add),
-                          onTap: null,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          width: 48,
+                          height: 48,
+                          child: GfIconButton(
+                            icon: Icon(Icons.add),
+                            onTap: null,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 Divider(),
                 Padding(
@@ -699,68 +703,71 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: GfTextStyle.b1(),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GfCheckbox(
-                        onTap: (a) {},
-                        value: false,
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GfCheckbox(
+                          onTap: (a) {},
+                          value: false,
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GfCheckbox(
-                        onTap: (a) {},
-                        value: true,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GfCheckbox(
+                          onTap: (a) {},
+                          value: true,
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GfRadioButton<bool>(
-                        value: false,
-                        selectedOption: true,
-                        onTap: (a) {},
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GfRadioButton<bool>(
+                          value: false,
+                          selectedOption: true,
+                          onTap: (a) {},
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GfRadioButton<bool>(
-                        value: true,
-                        selectedOption: true,
-                        onTap: (a) {},
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GfRadioButton<bool>(
+                          value: true,
+                          selectedOption: true,
+                          onTap: (a) {},
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GfSwitch(
-                        value: false,
-                        onTap: (a) {},
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GfSwitch(
+                          value: false,
+                          onTap: (a) {},
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GfSwitch(
-                        value: true,
-                        onTap: (a) {},
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GfSwitch(
+                          value: true,
+                          onTap: (a) {},
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GfSwitch(
-                        value: false,
-                        onTap: null,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GfSwitch(
+                          value: false,
+                          onTap: null,
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GfSwitch(
-                        value: true,
-                        onTap: null,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GfSwitch(
+                          value: true,
+                          onTap: null,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 Divider(),
                 Padding(
@@ -1184,12 +1191,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       return null;
                     },
                     prefixWidget: Icon(Icons.person),
-                    suffixWidget: GfButton.filled(
-                      trailing: Icons.search,
-                      onTap: () {},
-                      title: "",
-                      scale: GfButtonScale.small(),
-                      size: GfButtonSize.mini(),
+                    suffixWidget: SizedBox(
+                      height: 10,
+                      child: GfButton.outline(
+                        trailing: Icons.search,
+                        onTap: () {},
+                        title: "",
+                        scale: GfButtonScale.small(),
+                        size: GfButtonSize.mini(),
+                      ),
                     ),
                     hintText: "Put text",
                     labelText: "label",
@@ -1473,68 +1483,75 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GfTag.blue(
-                        label: "tag",
-                        onSuffixTap: () {},
-                        prefix: UniconsLine.times,
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GfTag.blue(
+                          label: "tag",
+                          onSuffixTap: () {},
+                          prefix: UniconsLine.times,
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GfTag.pink(
-                        label: " tag",
-                        onSuffixTap: () {},
-                        prefix: UniconsLine.times,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GfTag.pink(
+                          label: " tag",
+                          onSuffixTap: () {},
+                          prefix: UniconsLine.times,
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GfTag.red(
-                        label: " tag",
-                        onSuffixTap: () {},
-                        prefix: UniconsLine.times,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GfTag.red(
+                          label: " tag",
+                          onSuffixTap: () {},
+                          prefix: UniconsLine.times,
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GfTag.grey(
-                        label: " tag",
-                        onSuffixTap: () {},
-                        suffix: UniconsLine.times,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GfTag.grey(
+                          label: " tag",
+                          onSuffixTap: () {},
+                          suffix: UniconsLine.times,
+                        ),
                       ),
-                    ),
-                 Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GfTag.orange(
-                        label: " tag",
-                        onSuffixTap: () {},
-                        prefix: UniconsLine.times,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GfTag.orange(
+                          label: " tag",
+                          onSuffixTap: () {},
+                          prefix: UniconsLine.times,
+                        ),
                       ),
-                    ),
-                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GfTag.purple(
-                        label: " tag",
-                        onSuffixTap: () {},
-                        prefix: UniconsLine.times,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GfTag.purple(
+                          label: " tag",
+                          onSuffixTap: () {},
+                          prefix: UniconsLine.times,
+                        ),
                       ),
-                    ), Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GfTag.green(
-                        label: " tag",
-                        onSuffixTap: () {},
-                        prefix: UniconsLine.times,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GfTag.green(
+                          label: " tag",
+                          onSuffixTap: () {},
+                          prefix: UniconsLine.times,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 Divider(),
-                Text("Snackbar",style: GfTextStyle.b1(),),
+                Text(
+                  "Snackbar",
+                  style: GfTextStyle.b1(),
+                ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
@@ -1561,8 +1578,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                
-
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
@@ -1576,8 +1591,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                
-
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
@@ -1591,9 +1604,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                
-
-
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
@@ -1607,9 +1617,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-
-
-
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
@@ -1623,10 +1630,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-
-
-
-
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
@@ -1640,10 +1643,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-
-
-
-
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
@@ -1657,8 +1656,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-
-
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
@@ -1672,9 +1669,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-
-
-  Padding(
+                Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
                     width: 350,
@@ -1687,8 +1682,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-
-  Padding(
+                Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
                     width: 350,
@@ -1701,9 +1695,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-
-
-  Padding(
+                Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
                     width: 350,
@@ -1716,8 +1708,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-
-
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
@@ -1771,41 +1761,48 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 Divider(),
-                Text("Avatar",style: GfTextStyle.b1(),),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GfAvatar.small(
-                        child: Container(
-                          color: Colors.red,
+                Text(
+                  "Avatar",
+                  style: GfTextStyle.b1(),
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GfAvatar.small(
+                          child: Container(
+                            color: Colors.red,
+                          ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GfAvatar.medium(
-                        child: Container(
-                          color: Colors.red,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GfAvatar.medium(
+                          child: Container(
+                            color: Colors.red,
+                          ),
+                          withDot: true,
                         ),
-                        withDot: true,
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GfAvatar.large(
-                        withDot: true,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GfAvatar.large(
+                          withDot: true,
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GfAvatar.extraLarge(
-                        child: Image.network('https://via.placeholder.com/150'),
-                        withDot: true,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GfAvatar.extraLarge(
+                          child:
+                              Image.network('https://via.placeholder.com/150'),
+                          withDot: true,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
