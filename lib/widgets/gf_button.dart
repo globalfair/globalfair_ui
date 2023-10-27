@@ -26,14 +26,14 @@ class GfButtonScale {
           horizontal: GfDouble.gf16(),
           vertical: GfDouble.gf8(),
         ),
-        textStyle = GfTextStyle.b3(fontWeight: FontWeight.bold),
+        textStyle = GfTextStyle.b4(fontWeight: FontWeight.w600),
         height = GfDouble.gf32();
   GfButtonScale.medium()
       : padding = GfEdgeInsets.symmetric(
           horizontal: GfDouble.gf24(),
           vertical: GfDouble.gf12(),
         ),
-        textStyle = GfTextStyle.b3(fontWeight: FontWeight.bold),
+        textStyle = GfTextStyle.b4(fontWeight: FontWeight.bold),
         height = GfDouble.gf40();
   GfButtonScale.large()
       : padding = GfEdgeInsets.symmetric(
