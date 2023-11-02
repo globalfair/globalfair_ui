@@ -100,6 +100,7 @@ class _GfTextFieldState extends State<GfTextField> {
             width: widget.width,
             height: widget.height,
             child: TextFormField(
+              
               focusNode: widget.focusNode,
               key: widget.key,
               controller: widget.controller,
@@ -108,7 +109,7 @@ class _GfTextFieldState extends State<GfTextField> {
                 helperText: " ",
                 helperStyle: const TextStyle(fontSize: 0),
                 errorStyle: const TextStyle(fontSize: 0),
-                isDense: false,
+                isDense: true,
                 prefixIcon: widget.prefixWidget == null
                     ? null
                     : SizedBox(

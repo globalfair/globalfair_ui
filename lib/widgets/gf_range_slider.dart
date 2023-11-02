@@ -6,15 +6,17 @@ class GfRangeSlider extends StatelessWidget {
   final RangeValues values;
   final RangeLabels? labels;
   final int? divisions;
-  final void Function(RangeValues)? onTap;
-  final double max;
+  final void Function(RangeValues) onTap;
+  final double max;  final bool isDisabled;
+
   final double min;
   const GfRangeSlider(
       {super.key,
       required this.values,
       this.labels,
       this.divisions,
-      this.onTap,
+      this.isDisabled = false,
+     required this.onTap,
       this.max = 100,
       this.min = 0});
 
@@ -25,7 +27,7 @@ class GfRangeSlider extends StatelessWidget {
       labels: labels,
       max: max,
       divisions: divisions,
-      activeColor: gfPrimary1Color,
+      activeColor: isDisabled == true ? gfGrey3Color: gfPrimary1Color,
       inactiveColor: gfGrey6Color,
       min: min,
       onChanged: onTap,

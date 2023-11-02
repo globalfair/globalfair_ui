@@ -118,7 +118,7 @@ class GfTag extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(4)),
         color: backgroundColor,
       ),
-      padding: GfEdgeInsets.all(GfDouble.gf4()),
+      padding: GfEdgeInsets.symmetric(vertical: GfDouble.gf4(),horizontal: GfDouble.gf16()),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,

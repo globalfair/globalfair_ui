@@ -5,8 +5,9 @@ import '../shared/app_colors.dart';
 class GfSlider extends StatelessWidget {
   final double value;
   final String? label;
-  final void Function(double)? onTap;
+  final void Function(double) onTap;
   final double max;
+  final bool isDisabled;
   final double min;
     final int? divisions;
 
@@ -15,7 +16,8 @@ class GfSlider extends StatelessWidget {
       required this.value,
       this.label,
       this.divisions,
-      this.onTap,
+      required this.onTap,
+      this.isDisabled = false,
       this.max = 100,
       this.min = 0});
 
@@ -26,8 +28,8 @@ class GfSlider extends StatelessWidget {
       label: label,
       onChanged: onTap,
       divisions: divisions,
-      thumbColor: gfPrimary1Color,
-      activeColor: gfPrimary1Color,
+      thumbColor: isDisabled == true ? gfGrey3Color : gfPrimary1Color,
+      activeColor: isDisabled == true ? gfGrey3Color: gfPrimary1Color,
       inactiveColor: gfGrey6Color,
       max: max,
       min: min,

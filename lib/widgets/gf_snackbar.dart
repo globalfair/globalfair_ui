@@ -120,17 +120,23 @@ class GfSnackBar extends StatelessWidget {
                             style: const GfTextStyle.b4(
                                 fontWeight: FontWeight.bold),
                           ),
-                          Text(message),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Text(message),
+                          ),
                         ],
                       ),
                     ],
                   ),
-                  GfIconButton(
-                      onTap: onCancelTap,
-                      icon: Icon(
-                        UniconsLine.times,
-                        color: gfGrey1Color,
-                      ))
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: GfIconButton(
+                        onTap: onCancelTap,
+                        icon: Icon(
+                          UniconsLine.times,
+                          color: gfGrey1Color,
+                        )),
+                  )
                 ],
               ),
             ),
@@ -154,8 +160,11 @@ class GfSnackBar extends StatelessWidget {
                       ),
                     ),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                         SizedBox(
+                              height: GfDouble.gf24().size,
+                            ),
                         Container(
                             padding: GfEdgeInsets.all(GfDouble.gf4()),
                             decoration: BoxDecoration(
@@ -168,6 +177,9 @@ class GfSnackBar extends StatelessWidget {
                             )),
                         Column(
                           children: [
+                             SizedBox(
+                              height: GfDouble.gf12().size,
+                            ),
                             Text(
                               headingText,
                               style: const GfTextStyle.b4(
@@ -242,6 +254,9 @@ class GfSnackBar extends StatelessWidget {
                         height: GfDouble.gf8().size,
                       ),
                       Text(message),
+                        SizedBox(
+                        height: GfDouble.gf8().size,
+                      ),
                     ],
                   ),
                   MouseRegion(
@@ -288,6 +303,9 @@ class GfSnackBar extends StatelessWidget {
                       )),
                   Column(
                     children: [
+                      SizedBox(
+                        height: GfDouble.gf8().size,
+                      ),
                       Text(
                         headingText,
                         style:
@@ -296,11 +314,14 @@ class GfSnackBar extends StatelessWidget {
                       SizedBox(
                         height: GfDouble.gf8().size,
                       ),
-                      Text(message),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom:18),
+                        child: Text(message),
+                      ),
                     ],
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       MouseRegion(
                         cursor: SystemMouseCursors.click,
@@ -312,6 +333,7 @@ class GfSnackBar extends StatelessWidget {
                           onTap: onCancelTap,
                         ),
                       ),
+                      SizedBox(width: 60,),
                       GfButton.outline(
                           onTap: onBackTap,
                           title: "Back",

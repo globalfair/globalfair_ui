@@ -252,6 +252,7 @@ class GfButton extends StatelessWidget {
           height: scale.height.size,
           child: ElevatedButton(
             style: ButtonStyle(
+              elevation: MaterialStateProperty.all(0),
               padding: MaterialStateProperty.all(scale.padding),
               overlayColor: MaterialStateProperty.all(
                   disabled ? gfGrey4Color : gfPrimary3Color),

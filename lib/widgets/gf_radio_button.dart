@@ -23,9 +23,9 @@ class GfRadioButton<T> extends StatelessWidget {
           return gfPrimary1Color;
         }
         if (states.contains(MaterialState.selected)) {
-          return onTap ==null? gfGrey3Color: gfPrimary1Color;
+          return onTap ==null? gfGrey6Color: gfPrimary1Color;
         }
-        return gfGrey1Color;
+        return gfGrey3Color;
       }),
       splashRadius: 10,
       onChanged: onTap,

@@ -784,6 +784,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 48,
                     child: GfSlider(
                       value: 20,
+                      isDisabled: true,
+                      onTap: (a){},
                     ),
                   ),
                 ),
@@ -831,11 +833,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         values: const RangeValues(0, 60),
                         max: 100,
                         divisions: 10,
+                        isDisabled: true,
                         labels: RangeLabels(
                           _currentRangeValues.start.round().toString(),
                           _currentRangeValues.end.round().toString(),
                         ),
-                        onTap: null),
+                        onTap: (a){}),
                   ),
                 ),
                 Divider(),
@@ -1169,11 +1172,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       return null;
                     },
                     prefixWidget: Icon(Icons.email),
-                    suffixWidget: GfButton.filled(
-                      onTap: () {},
-                      title: "Submit",
-                      scale: GfButtonScale.small(),
-                      size: GfButtonSize.mini(),
+                    suffixWidget: SizedBox(
+                      width: 80,
+
+                      child: GfButton.filled(
+                        onTap: () {},
+                        title: "Submit",
+                        scale: GfButtonScale.small(),
+                        size: GfButtonSize.mini(),
+                      ),
                     ),
                     hintText: "Put text",
                     labelText: "label",

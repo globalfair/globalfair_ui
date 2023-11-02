@@ -26,7 +26,7 @@ class GfCheckbox extends StatelessWidget {
         if (states.contains(MaterialState.selected)) {
           return onTap ==null? gfGrey3Color: gfPrimary1Color;
         }
-        return Colors.transparent;
+        return gfGrey7Color;
       }),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(2)),
         side: MaterialStateBorderSide.resolveWith((states) {
