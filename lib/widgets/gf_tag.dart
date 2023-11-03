@@ -20,7 +20,7 @@ class GfTag extends StatelessWidget {
       this.onPrefixTap,
       this.onSuffixTap})
       : textColor = gfPrimary1Color,
-        backgroundColor = gfPrimary6Color,
+        backgroundColor = const Color(0xffEBF6FF),
         super(key: key);
 
   const GfTag.blue(
@@ -31,7 +31,7 @@ class GfTag extends StatelessWidget {
       this.onPrefixTap,
       this.onSuffixTap})
       : textColor = gfPrimary1Color,
-        backgroundColor = gfPrimary6Color,
+        backgroundColor = const Color(0xffEBF6FF),
         super(key: key);
 
   const GfTag.red(
@@ -42,7 +42,7 @@ class GfTag extends StatelessWidget {
       this.onPrefixTap,
       this.onSuffixTap})
       : textColor = gfError1Color,
-        backgroundColor = gfError4Color,
+        backgroundColor = const Color(0xffFFE1E2),
         super(key: key);
 
   const GfTag.yellow(
@@ -53,7 +53,7 @@ class GfTag extends StatelessWidget {
       this.onPrefixTap,
       this.onSuffixTap})
       : textColor = gfWarning1Color,
-        backgroundColor = gfWarning4Color,
+        backgroundColor = const Color(0xffFFFCE9),
         super(key: key);
 
   const GfTag.green(
@@ -64,7 +64,7 @@ class GfTag extends StatelessWidget {
       this.onPrefixTap,
       this.onSuffixTap})
       : textColor = gfSuccess1Color,
-        backgroundColor = gfSuccess4Color,
+        backgroundColor = const Color(0xffE8FFDE),
         super(key: key);
 
   const GfTag.purple(
@@ -75,7 +75,7 @@ class GfTag extends StatelessWidget {
       this.onPrefixTap,
       this.onSuffixTap})
       : textColor = gfPurple1Color,
-        backgroundColor = gfPurple4Color,
+        backgroundColor = const Color(0xffF0E8FF),
         super(key: key);
 
   const GfTag.orange(
@@ -86,7 +86,7 @@ class GfTag extends StatelessWidget {
       this.onPrefixTap,
       this.onSuffixTap})
       : textColor = gfOrange1Color,
-        backgroundColor = gfOrange4Color,
+        backgroundColor = const Color(0xffFFF1E4),
         super(key: key);
 
   const GfTag.pink(
@@ -97,7 +97,7 @@ class GfTag extends StatelessWidget {
       this.onPrefixTap,
       this.onSuffixTap})
       : textColor = gfPink1Color,
-        backgroundColor = gfPink4Color,
+        backgroundColor = const Color(0xffFFECFB),
         super(key: key);
 
   const GfTag.grey(
@@ -108,7 +108,18 @@ class GfTag extends StatelessWidget {
       this.onPrefixTap,
       this.onSuffixTap})
       : textColor = gfGrey1Color,
-        backgroundColor = gfGrey4Color,
+        backgroundColor = gfGrey7Color,
+        super(key: key);
+
+  const GfTag.teal(
+      {Key? key,
+      this.suffix,
+      this.prefix,
+      required this.label,
+      this.onPrefixTap,
+      this.onSuffixTap})
+      : textColor = gfTeal1Color,
+        backgroundColor = const Color(0xffF1FEFC),
         super(key: key);
 
   @override
@@ -118,7 +129,8 @@ class GfTag extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(4)),
         color: backgroundColor,
       ),
-      padding: GfEdgeInsets.symmetric(vertical: GfDouble.gf4(),horizontal: GfDouble.gf16()),
+      padding: GfEdgeInsets.symmetric(
+          vertical: GfDouble.gf4(), horizontal: GfDouble.gf16()),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,

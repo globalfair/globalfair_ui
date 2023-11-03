@@ -40,7 +40,8 @@ class GfIconButton extends StatelessWidget {
               onPressed: onTap,
               child: icon,
               style: ButtonStyle(
-                iconColor: MaterialStateProperty.all(gfWhiteColor),
+                iconColor: MaterialStateProperty.all(
+                    onTap == null ? gfBlack7Color : gfWhiteColor),
                 overlayColor: MaterialStateProperty.resolveWith(
                   (states) {
                     return states.contains(MaterialState.pressed)
@@ -49,7 +50,7 @@ class GfIconButton extends StatelessWidget {
                   },
                 ),
                 backgroundColor: MaterialStateProperty.all(
-                    onTap == null ? gfGrey1Color : gfPrimary1Color),
+                    onTap == null ? gfGrey5Color : gfPrimary1Color),
               ),
             ),
           )

@@ -142,8 +142,8 @@ class GfButton extends StatelessWidget {
             onPressed: onTap,
             child: busy
                 ? SizedBox(
-                    width: scale.height.size * 0.5,
-                    height: scale.height.size * 0.5,
+                    width: scale.height.size * 0.3,
+                    height: scale.height.size * 0.3,
                     child: CircularProgressIndicator(
                       color: disabled ? gfGrey4Color : gfPrimary1Color,
                     ),
@@ -203,8 +203,8 @@ class GfButton extends StatelessWidget {
             onPressed: onTap,
             child: busy
                 ? SizedBox(
-                    width: scale.height.size * 0.5,
-                    height: scale.height.size * 0.5,
+                    width: scale.height.size * 0.3,
+                    height: scale.height.size * 0.3,
                     child: CircularProgressIndicator(
                       color: disabled ? gfGrey4Color : gfPrimary1Color,
                     ),

@@ -122,7 +122,7 @@ class GfSnackBar extends StatelessWidget {
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 8.0),
-                            child: Text(message),
+                            child: Text(message,style: const TextStyle(color: gfBlack6Color),),
                           ),
                         ],
                       ),
@@ -163,7 +163,7 @@ class GfSnackBar extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                          SizedBox(
-                              height: GfDouble.gf24().size,
+                              height: GfDouble.gf12().size,
                             ),
                         Container(
                             padding: GfEdgeInsets.all(GfDouble.gf4()),
@@ -188,7 +188,7 @@ class GfSnackBar extends StatelessWidget {
                             SizedBox(
                               height: GfDouble.gf8().size,
                             ),
-                            Text(message),
+                            Text(message,style: const TextStyle(color: gfBlack6Color),),
                           ],
                         ),
                       ],
@@ -253,20 +253,23 @@ class GfSnackBar extends StatelessWidget {
                       SizedBox(
                         height: GfDouble.gf8().size,
                       ),
-                      Text(message),
+                      Text(message,style: const TextStyle(color: gfBlack6Color),),
                         SizedBox(
                         height: GfDouble.gf8().size,
                       ),
                     ],
                   ),
-                  MouseRegion(
-                    cursor: SystemMouseCursors.click,
-                    child: GestureDetector(
-                      child: Text(
-                        "Close",
-                        style: TextStyle(color: gfGrey1Color),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom:8.0),
+                    child: MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: GestureDetector(
+                        child: Text(
+                          "Close",
+                          style: TextStyle(color: gfGrey1Color),
+                        ),
+                        onTap: onCancelTap,
                       ),
-                      onTap: onCancelTap,
                     ),
                   ),
                 ],
@@ -315,31 +318,39 @@ class GfSnackBar extends StatelessWidget {
                         height: GfDouble.gf8().size,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(bottom:18),
-                        child: Text(message),
+                        padding: const EdgeInsets.only(bottom:18,left:24,right:24),
+                        child: Text("nckldalclanlcnlanclalnclnalcnlanlcnalcnlanclnalnclanlcnalncanclnalcnalnclanlcnalnclanlcnalnlnalcnalnl",textAlign: TextAlign.center,style: const TextStyle(color: gfBlack6Color,overflow: TextOverflow.ellipsis),),
                       ),
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      MouseRegion(
-                        cursor: SystemMouseCursors.click,
-                        child: GestureDetector(
-                          child: Text(
-                            "Close",
-                            style: TextStyle(color: gfGrey1Color),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom:8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        MouseRegion(
+                          cursor: SystemMouseCursors.click,
+                          child: GestureDetector(
+                            child: Container(
+                              width: 100,
+                              child: Text(
+                                
+                                "Close",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(color: gfGrey1Color),
+                              ),
+                            ),
+                            onTap: onCancelTap,
                           ),
-                          onTap: onCancelTap,
                         ),
-                      ),
-                      SizedBox(width: 60,),
-                      GfButton.outline(
-                          onTap: onBackTap,
-                          title: "Back",
-                          scale: GfButtonScale.small(),
-                          size: GfButtonSize.mini())
-                    ],
+                        SizedBox(width: 10,),
+                        GfButton.outline(
+                            onTap: onBackTap,
+                            title: "Back",
+                            scale: GfButtonScale.small(),
+                            size: GfButtonSize.mini())
+                      ],
+                    ),
                   ),
                 ],
               ),

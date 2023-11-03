@@ -3,7 +3,7 @@ import 'package:globalfair_ui/shared/app_colors.dart';
 import 'package:globalfair_ui/shared/app_size.dart';
 
 class GfAvatar extends StatelessWidget {
-  Widget? child;
+  final Widget? child;
   final Color dotColor;
   final bool withDot;
   final double? radius;
