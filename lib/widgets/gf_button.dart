@@ -23,33 +23,33 @@ class GfButtonScale {
   );
   GfButtonScale.small()
       : padding = GfEdgeInsets.symmetric(
-          horizontal: GfDouble.gf16(),
-          vertical: GfDouble.gf8(),
+          horizontal: GfDouble.gf16,
+          vertical: GfDouble.gf8,
         ),
         textStyle = GfTextStyle.b4(fontWeight: FontWeight.w600),
-        height = GfDouble.gf32();
+        height = GfDouble.gf32;
   GfButtonScale.medium()
       : padding = GfEdgeInsets.symmetric(
-          horizontal: GfDouble.gf24(),
-          vertical: GfDouble.gf12(),
+          horizontal: GfDouble.gf24,
+          vertical: GfDouble.gf12,
         ),
         textStyle = GfTextStyle.b4(fontWeight: FontWeight.bold),
-        height = GfDouble.gf40();
+        height = GfDouble.gf40;
   GfButtonScale.large()
       : padding = GfEdgeInsets.symmetric(
-          horizontal: GfDouble.gf32(),
-          vertical: GfDouble.gf16(),
+          horizontal: GfDouble.gf32,
+          vertical: GfDouble.gf16,
         ),
         textStyle = GfTextStyle.b3(fontWeight: FontWeight.bold),
-        height = GfDouble.gf56();
+        height = GfDouble.gf56;
 }
 
 class GfButtonSize {
   final double width;
   GfButtonSize(this.width);
-  GfButtonSize.mini() : width = 100;
-  GfButtonSize.medium() : width = 172;
-  GfButtonSize.full() : width = 340;
+  static final GfButtonSize mini = GfButtonSize(100);
+  static final GfButtonSize medium = GfButtonSize(172);
+  static final GfButtonSize full = GfButtonSize(340);
 }
 
 class GfButton extends StatelessWidget {

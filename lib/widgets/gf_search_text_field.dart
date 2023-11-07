@@ -98,13 +98,13 @@ class GfSearchTextField extends StatelessWidget {
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: gfPrimary1Color),
             borderRadius: BorderRadius.all(
-              Radius.circular(GfDouble.gf4().size),
+              Radius.circular(GfDouble.gf4.size),
             ),
           ),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: gfGrey4Color),
             borderRadius: BorderRadius.all(
-              Radius.circular(GfDouble.gf4().size),
+              Radius.circular(GfDouble.gf4.size),
             ),
           ),
         ),

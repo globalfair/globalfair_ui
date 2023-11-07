@@ -130,7 +130,7 @@ class GfTag extends StatelessWidget {
         color: backgroundColor,
       ),
       padding: GfEdgeInsets.symmetric(
-          vertical: GfDouble.gf4(), horizontal: GfDouble.gf16()),
+          vertical: GfDouble.gf4, horizontal: GfDouble.gf16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,

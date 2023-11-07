@@ -15,6 +15,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   unicons: ^2.1.1
+  dotted_border: ^2.1.0
 
 dev_dependencies:
   flutter_test:

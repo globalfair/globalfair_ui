@@ -41,7 +41,7 @@ class GfTooltip extends StatelessWidget {
       richMessage: TextSpan(children: [
         WidgetSpan(
             child: Padding(
-          padding: GfEdgeInsets.all(GfDouble.gf12()),
+          padding: GfEdgeInsets.all(GfDouble.gf12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -52,7 +52,7 @@ class GfTooltip extends StatelessWidget {
               ),
               !withButton
                   ? Padding(
-                padding: GfEdgeInsets.only(top:GfDouble.gf12()),
+                padding: GfEdgeInsets.only(top:GfDouble.gf12),
                     child: Text(subHeading ?? "",style: GfTextStyle.b5(color: gfWhiteColor),),
                   )
                   : Row(
@@ -61,12 +61,12 @@ class GfTooltip extends StatelessWidget {
                             onTap: leftButtonOnTap,
                             title: leftButtonText,
                             scale: GfButtonScale.small(),
-                            size: GfButtonSize.mini()),
+                            size: GfButtonSize.mini),
                         GfButton.filled(
                             onTap: rightButtonOnTap,
                             title: rightButtonText,
                             scale: GfButtonScale.small(),
-                            size: GfButtonSize.mini())
+                            size: GfButtonSize.mini)
                       ],
                     ),
             ],

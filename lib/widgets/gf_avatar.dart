@@ -12,28 +12,28 @@ class GfAvatar extends StatelessWidget {
     this.child,
     this.dotColor = gfSuccess1Color,
     this.withDot = false,
-  })  : radius = GfDouble.gf24().size,
+  })  : radius = GfDouble.gf24.size,
         super(key: key);
   GfAvatar.medium({
     Key? key,
     this.child,
     this.dotColor = gfSuccess1Color,
     this.withDot = false,
-  })  : radius = GfDouble.gf40().size,
+  })  : radius = GfDouble.gf40.size,
         super(key: key);
   GfAvatar.large({
     Key? key,
     this.child,
     this.dotColor = gfSuccess1Color,
     this.withDot = false,
-  })  : radius = GfDouble.gf56().size,
+  })  : radius = GfDouble.gf56.size,
         super(key: key);
   GfAvatar.extraLarge({
     Key? key,
     this.child,
     this.dotColor = gfSuccess1Color,
     this.withDot = false,
-  })  : radius = GfDouble.gf72().size,
+  })  : radius = GfDouble.gf72.size,
         super(key: key);
 
   @override
@@ -42,8 +42,8 @@ class GfAvatar extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: radius,
-          child: ClipRRect(
-              borderRadius: BorderRadius.circular(100), child: child),
+          child:
+              ClipRRect(borderRadius: BorderRadius.circular(100), child: child),
         ),
         withDot
             ? Positioned(
