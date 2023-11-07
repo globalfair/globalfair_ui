@@ -85,7 +85,7 @@ class _GfTextFieldInternalState extends State<GfTextFieldInternal> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: widget.scale.width,
-      height: widget.scale.height* 1.3,
+      height: widget.scale.height * 1.3,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -102,7 +102,13 @@ class _GfTextFieldInternalState extends State<GfTextFieldInternal> {
                 helperText: " ",
                 helperStyle: const TextStyle(fontSize: 0),
                 errorStyle: const TextStyle(fontSize: 0),
-                contentPadding: EdgeInsets.all(10),
+                contentPadding: EdgeInsets.all(
+                  10,
+                ),
+                // contentPadding: EdgeI/nsets.only(top: 10,bottom: 10,left: widget.prefixWidget!=null ? 6: 10,right: widget.suffixWidget!=null ? 6: 10,),
+                 prefixIconConstraints:BoxConstraints( minHeight: 20,minWidth: 20),
+                 suffixIconConstraints:BoxConstraints( minHeight: 20,minWidth: 20),
+
                 prefixIcon: widget.prefixWidget,
                 suffixIcon: widget.suffixWidget,
                 labelStyle: TextStyle(color: gfGrey1Color),
@@ -341,8 +347,24 @@ class GfTextField extends StatelessWidget {
           obscureText: obscureText,
           maxLines: maxLines,
           minLines: minLines,
-          prefixWidget: prefixIcon == null ? null : Icon(prefixIcon,size: 20,),
-          suffixWidget: suffixIcon == null ? null : Icon(suffixIcon,size: 20,),
+          prefixWidget: prefixIcon == null
+              ? null
+              : Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(
+                    prefixIcon,
+                    size: 20,
+                  ),
+              ),
+          suffixWidget: suffixIcon == null
+              ? null
+              : Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(
+                    suffixIcon,
+                    size: 20,
+                  ),
+              ),
           validator: validator,
           errorColor: errorColor,
           onFieldSubmitted: onFieldSubmitted,
@@ -367,7 +389,15 @@ class GfTextField extends StatelessWidget {
           obscureText: obscureText,
           maxLines: maxLines,
           minLines: minLines,
-          prefixWidget: prefixIcon != null ? Icon(prefixIcon,size: 20,) : null,
+          prefixWidget: prefixIcon != null
+              ? Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(
+                    prefixIcon,
+                    size: 20,
+                  ),
+              )
+              : null,
           suffixWidget: suffixIconButton,
           validator: validator,
           errorColor: errorColor,
@@ -393,7 +423,13 @@ class GfTextField extends StatelessWidget {
           obscureText: obscureText,
           maxLines: maxLines,
           minLines: minLines,
-          prefixWidget: Icon(prefixIcon,size: 20,),
+          prefixWidget: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(
+              prefixIcon,
+              size: 20,
+            ),
+          ),
           suffixWidget: Container(
             margin: EdgeInsets.symmetric(vertical: 5),
             height: scale.height,
@@ -443,7 +479,13 @@ class GfTextField extends StatelessWidget {
           obscureText: obscureText,
           maxLines: maxLines,
           minLines: minLines,
-          prefixWidget: Icon(prefixIcon,size: 20,),
+          prefixWidget: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(
+              prefixIcon,
+              size: 20,
+            ),
+          ),
           suffixWidget: Container(
             margin: EdgeInsets.symmetric(vertical: 5),
             height: scale.height,

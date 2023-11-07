@@ -80,6 +80,7 @@ class GfUploadButton extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                   color: Colors.black),
             ),
+            SizedBox(height: 2,),
             Text(
               "50 MB max file size",
               style: TextStyle(
