@@ -85,7 +85,7 @@ class _GfTextFieldInternalState extends State<GfTextFieldInternal> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: widget.scale.width,
-      height: widget.scale.height * 1.3,
+      height: widget.scale.height * 1.35,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
