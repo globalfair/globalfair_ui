@@ -1,6 +1,7 @@
 library globalfair_ui;
 
 export 'package:globalfair_ui/widgets/gf_button.dart';
+export 'package:globalfair_ui/widgets/gf_textfield.dart';
 export 'package:globalfair_ui/widgets/gf_icon_button.dart';
 export 'package:globalfair_ui/widgets/gf_slider.dart';
 export 'package:globalfair_ui/widgets/gf_range_slider.dart';
