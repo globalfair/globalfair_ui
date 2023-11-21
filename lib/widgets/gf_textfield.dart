@@ -46,6 +46,7 @@ class GfTextFieldInternal extends StatefulWidget {
   final FocusNode? focusNode;
   final Color? errorColor;
   final String? Function(String?)? validator;
+  final String? Function(String?)? onChanged;
   final Function(String)? onFieldSubmitted;
 
   const GfTextFieldInternal({
@@ -70,6 +71,7 @@ class GfTextFieldInternal extends StatefulWidget {
     this.validator,
     this.errorColor,
     this.onFieldSubmitted,
+    this.onChanged,
     required this.scale,
   }) : super(key: key);
 
@@ -93,6 +95,7 @@ class _GfTextFieldInternalState extends State<GfTextFieldInternal> {
             width: widget.scale.width,
             height: widget.scale.height,
             child: TextFormField(
+              onChanged: widget.onChanged,
               focusNode: widget.focusNode,
               key: widget.key,
               controller: widget.controller,
@@ -106,8 +109,10 @@ class _GfTextFieldInternalState extends State<GfTextFieldInternal> {
                   10,
                 ),
                 // contentPadding: EdgeI/nsets.only(top: 10,bottom: 10,left: widget.prefixWidget!=null ? 6: 10,right: widget.suffixWidget!=null ? 6: 10,),
-                 prefixIconConstraints:BoxConstraints( minHeight: 20,minWidth: 20),
-                 suffixIconConstraints:BoxConstraints( minHeight: 20,minWidth: 20),
+                prefixIconConstraints:
+                    BoxConstraints(minHeight: 20, minWidth: 20),
+                suffixIconConstraints:
+                    BoxConstraints(minHeight: 20, minWidth: 20),
 
                 prefixIcon: widget.prefixWidget,
                 suffixIcon: widget.suffixWidget,
@@ -189,6 +194,8 @@ class GfTextField extends StatelessWidget {
   final Color? errorColor;
   final String? Function(String?)? validator;
   final Function(String)? onFieldSubmitted;
+  final String? Function(String?)? onChanged;
+
   final Function()? suffixButtonOnPress;
   final String? suffixButtonLabel;
   final IconData? suffixButtonIcon;
@@ -218,6 +225,7 @@ class GfTextField extends StatelessWidget {
     this.validator,
     this.errorColor,
     this.onFieldSubmitted,
+    this.onChanged,
     required this.scale,
     this.prefixIcon,
     this.suffixIcon,
@@ -250,6 +258,7 @@ class GfTextField extends StatelessWidget {
     this.validator,
     this.errorColor,
     this.onFieldSubmitted,
+    this.onChanged,
     required this.scale,
     this.suffixIconButton,
     this.prefixIcon,
@@ -284,6 +293,7 @@ class GfTextField extends StatelessWidget {
     this.validator,
     this.errorColor,
     this.onFieldSubmitted,
+    this.onChanged,
     this.suffixButtonOnPress,
     this.suffixButtonLabel,
     required this.scale,
@@ -316,6 +326,7 @@ class GfTextField extends StatelessWidget {
     this.validator,
     this.errorColor,
     this.onFieldSubmitted,
+    this.onChanged,
     this.suffixButtonOnPress,
     this.suffixButtonIcon,
     required this.scale,
@@ -334,6 +345,7 @@ class GfTextField extends StatelessWidget {
           key: key,
           controller: controller,
           keyboardType: keyboardType,
+          onChanged: onChanged,
           labelText: labelText,
           focusNode: focusNode,
           hintText: hintText,
@@ -350,21 +362,21 @@ class GfTextField extends StatelessWidget {
           prefixWidget: prefixIcon == null
               ? null
               : Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(
                     prefixIcon,
                     size: 20,
                   ),
-              ),
+                ),
           suffixWidget: suffixIcon == null
               ? null
               : Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(
                     suffixIcon,
                     size: 20,
                   ),
-              ),
+                ),
           validator: validator,
           errorColor: errorColor,
           onFieldSubmitted: onFieldSubmitted,
@@ -377,6 +389,7 @@ class GfTextField extends StatelessWidget {
           controller: controller,
           keyboardType: keyboardType,
           labelText: labelText,
+          onChanged: onChanged,
           focusNode: focusNode,
           hintText: hintText,
           textCapitalization: textCapitalization,
@@ -391,12 +404,12 @@ class GfTextField extends StatelessWidget {
           minLines: minLines,
           prefixWidget: prefixIcon != null
               ? Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(
                     prefixIcon,
                     size: 20,
                   ),
-              )
+                )
               : null,
           suffixWidget: suffixIconButton,
           validator: validator,
@@ -410,6 +423,7 @@ class GfTextField extends StatelessWidget {
           key: key,
           controller: controller,
           keyboardType: keyboardType,
+          onChanged: onChanged,
           labelText: labelText,
           focusNode: focusNode,
           hintText: hintText,
@@ -468,6 +482,7 @@ class GfTextField extends StatelessWidget {
           keyboardType: keyboardType,
           labelText: labelText,
           focusNode: focusNode,
+          onChanged: onChanged,
           hintText: hintText,
           textCapitalization: textCapitalization,
           textAlign: textAlign,
