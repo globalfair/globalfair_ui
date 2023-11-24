@@ -26,7 +26,7 @@ class GfButtonScale {
           horizontal: GfDouble.gf16,
           vertical: GfDouble.gf8,
         ),
-        textStyle = GfTextStyle.b5(fontWeight: FontWeight.normal),
+        textStyle = GfTextStyle.b5(fontWeight: FontWeight.w300),
         height = GfDouble.gf32;
   GfButtonScale.medium()
       : padding = GfEdgeInsets.symmetric(
