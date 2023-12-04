@@ -16,10 +16,12 @@ class UploadButtonSize {
 class GfUploadButton extends StatelessWidget {
   final Function()? onPressed;
   final UploadButtonSize? size;
+  final String? fileSize;
   GfUploadButton({
     Key? key,
     this.onPressed,
     this.size,
+    this.fileSize,
   }) : super(key: key);
 
   @override
@@ -34,7 +36,6 @@ class GfUploadButton extends StatelessWidget {
       strokeWidth: 2,
       borderType: BorderType.RRect,
       child: ElevatedButton(
-        
         style: ButtonStyle(
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
@@ -81,9 +82,13 @@ class GfUploadButton extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                   color: Colors.black),
             ),
-            SizedBox(height: 2,),
+            SizedBox(
+              height: 2,
+            ),
             Text(
-              "50 MB max file size",
+              fileSize != null
+                  ? "$fileSize MB max file size"
+                  : "50 MB max file size",
               style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,

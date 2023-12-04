@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:globalfair_ui/shared/app_colors.dart';
 import 'package:globalfair_ui/shared/app_size.dart';
+import 'package:globalfair_ui/widgets/responsive_widget.dart';
 
 enum TextFieldType {
   prefixsuffixIcons,
@@ -36,6 +37,7 @@ class GfTextFieldInternal extends StatefulWidget {
   final TextDirection? textDirection;
   final bool readOnly;
   final bool autofocus;
+  final bool responsive;
   final GfTextFieldScale scale;
   final String obscuringCharacter;
   final bool obscureText;
@@ -56,6 +58,7 @@ class GfTextFieldInternal extends StatefulWidget {
     this.labelText,
     this.focusNode,
     this.hintText,
+    this.responsive = false,
     this.textCapitalization = TextCapitalization.none,
     this.textAlign = TextAlign.start,
     this.textAlignVertical,
@@ -85,90 +88,177 @@ class _GfTextFieldInternalState extends State<GfTextFieldInternal> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: widget.scale.width,
-      height: widget.scale.height * 1.35,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SizedBox(
-            width: widget.scale.width,
-            height: widget.scale.height,
-            child: TextFormField(
-              onChanged: widget.onChanged,
-              focusNode: widget.focusNode,
-              key: widget.key,
-              controller: widget.controller,
-              onFieldSubmitted: widget.onFieldSubmitted,
-              style: TextStyle(height: 1.5),
-              decoration: InputDecoration(
-                helperText: " ",
-                helperStyle: const TextStyle(fontSize: 0),
-                errorStyle: const TextStyle(fontSize: 0),
-                contentPadding: EdgeInsets.all(
-                  10,
-                ),
-                // contentPadding: EdgeI/nsets.only(top: 10,bottom: 10,left: widget.prefixWidget!=null ? 6: 10,right: widget.suffixWidget!=null ? 6: 10,),
-                prefixIconConstraints:
-                    BoxConstraints(minHeight: 20, minWidth: 20),
-                suffixIconConstraints:
-                    BoxConstraints(minHeight: 20, minWidth: 20),
+    return widget.responsive
+        ? ResponsiveWidget(
+            child: SizedBox(
+              height: widget.scale.height * 1.35,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    height: widget.scale.height,
+                    child: TextFormField(
+                      onChanged: widget.onChanged,
+                      focusNode: widget.focusNode,
+                      key: widget.key,
+                      controller: widget.controller,
+                      onFieldSubmitted: widget.onFieldSubmitted,
+                      style: TextStyle(height: 1.5),
+                      decoration: InputDecoration(
+                        helperText: " ",
+                        helperStyle: const TextStyle(fontSize: 0),
+                        errorStyle: const TextStyle(fontSize: 0),
+                        contentPadding: EdgeInsets.all(
+                          10,
+                        ),
+                        // contentPadding: EdgeI/nsets.only(top: 10,bottom: 10,left: widget.prefixWidget!=null ? 6: 10,right: widget.suffixWidget!=null ? 6: 10,),
+                        prefixIconConstraints:
+                            BoxConstraints(minHeight: 20, minWidth: 20),
+                        suffixIconConstraints:
+                            BoxConstraints(minHeight: 20, minWidth: 20),
 
-                prefixIcon: widget.prefixWidget,
-                suffixIcon: widget.suffixWidget,
-                labelStyle: TextStyle(color: gfGrey1Color),
-                label: Text(widget.labelText ?? ""),
-                hintText: widget.hintText,
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: gfPrimary1Color),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(GfDouble.gf4.size),
+                        prefixIcon: widget.prefixWidget,
+                        suffixIcon: widget.suffixWidget,
+                        labelStyle: TextStyle(color: gfGrey1Color),
+                        label: Text(widget.labelText ?? ""),
+                        hintText: widget.hintText,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: gfPrimary1Color),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(GfDouble.gf4.size),
+                          ),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: widget.errorColor ?? gfError1Color),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(GfDouble.gf4.size),
+                          ),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: widget.errorColor ?? gfError1Color),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(GfDouble.gf4.size),
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: gfGrey4Color),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(GfDouble.gf4.size),
+                          ),
+                        ),
+                      ),
+                      keyboardType: widget.keyboardType,
+                      textCapitalization: widget.textCapitalization,
+                      textAlign: widget.textAlign,
+                      validator: (a) {
+                        if (widget.validator != null)
+                          result = widget.validator!(a);
+                        setState(() {
+                          if (result != null) isValid = false;
+                        });
+                        return result;
+                      },
+                      textDirection: widget.textDirection,
+                    ),
                   ),
-                ),
-                errorBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: widget.errorColor ?? gfError1Color),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(GfDouble.gf4.size),
-                  ),
-                ),
-                focusedErrorBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: widget.errorColor ?? gfError1Color),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(GfDouble.gf4.size),
-                  ),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: gfGrey4Color),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(GfDouble.gf4.size),
-                  ),
-                ),
+                  if (!isValid)
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          result ?? "",
+                          style: TextStyle(fontSize: 12, color: gfError1Color),
+                        )),
+                ],
               ),
-              keyboardType: widget.keyboardType,
-              textCapitalization: widget.textCapitalization,
-              textAlign: widget.textAlign,
-              validator: (a) {
-                if (widget.validator != null) result = widget.validator!(a);
-                setState(() {
-                  if (result != null) isValid = false;
-                });
-                return result;
-              },
-              textDirection: widget.textDirection,
             ),
-          ),
-          if (!isValid)
-            Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  result ?? "",
-                  style: TextStyle(fontSize: 12, color: gfError1Color),
-                )),
-        ],
-      ),
-    );
+          )
+        : SizedBox(
+            width: widget.scale.width,
+            height: widget.scale.height * 1.35,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  width: widget.scale.width,
+                  height: widget.scale.height,
+                  child: TextFormField(
+                    onChanged: widget.onChanged,
+                    focusNode: widget.focusNode,
+                    key: widget.key,
+                    controller: widget.controller,
+                    onFieldSubmitted: widget.onFieldSubmitted,
+                    style: TextStyle(height: 1.5),
+                    decoration: InputDecoration(
+                      helperText: " ",
+                      helperStyle: const TextStyle(fontSize: 0),
+                      errorStyle: const TextStyle(fontSize: 0),
+                      contentPadding: EdgeInsets.all(
+                        10,
+                      ),
+                      // contentPadding: EdgeI/nsets.only(top: 10,bottom: 10,left: widget.prefixWidget!=null ? 6: 10,right: widget.suffixWidget!=null ? 6: 10,),
+                      prefixIconConstraints:
+                          BoxConstraints(minHeight: 20, minWidth: 20),
+                      suffixIconConstraints:
+                          BoxConstraints(minHeight: 20, minWidth: 20),
+
+                      prefixIcon: widget.prefixWidget,
+                      suffixIcon: widget.suffixWidget,
+                      labelStyle: TextStyle(color: gfGrey1Color),
+                      label: Text(widget.labelText ?? ""),
+                      hintText: widget.hintText,
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: gfPrimary1Color),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(GfDouble.gf4.size),
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: widget.errorColor ?? gfError1Color),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(GfDouble.gf4.size),
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: widget.errorColor ?? gfError1Color),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(GfDouble.gf4.size),
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: gfGrey4Color),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(GfDouble.gf4.size),
+                        ),
+                      ),
+                    ),
+                    keyboardType: widget.keyboardType,
+                    textCapitalization: widget.textCapitalization,
+                    textAlign: widget.textAlign,
+                    validator: (a) {
+                      if (widget.validator != null)
+                        result = widget.validator!(a);
+                      setState(() {
+                        if (result != null) isValid = false;
+                      });
+                      return result;
+                    },
+                    textDirection: widget.textDirection,
+                  ),
+                ),
+                if (!isValid)
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        result ?? "",
+                        style: TextStyle(fontSize: 12, color: gfError1Color),
+                      )),
+              ],
+            ),
+          );
   }
 }
 
@@ -191,6 +281,8 @@ class GfTextField extends StatelessWidget {
   final Widget? prefixWidget;
   final Widget? suffixWidget;
   final FocusNode? focusNode;
+  final bool responsive;
+
   final Color? errorColor;
   final String? Function(String?)? validator;
   final Function(String)? onFieldSubmitted;
@@ -212,6 +304,7 @@ class GfTextField extends StatelessWidget {
     this.labelText,
     this.focusNode,
     this.hintText,
+    this.responsive = false,
     this.textCapitalization = TextCapitalization.none,
     this.textAlign = TextAlign.start,
     this.textAlignVertical,
@@ -243,6 +336,7 @@ class GfTextField extends StatelessWidget {
     this.controller,
     this.keyboardType,
     this.labelText,
+    this.responsive = false,
     this.focusNode,
     this.hintText,
     this.textCapitalization = TextCapitalization.none,
@@ -278,6 +372,7 @@ class GfTextField extends StatelessWidget {
     this.labelText,
     this.focusNode,
     this.hintText,
+    this.responsive = false,
     this.textCapitalization = TextCapitalization.none,
     this.textAlign = TextAlign.start,
     this.textAlignVertical,
@@ -309,6 +404,7 @@ class GfTextField extends StatelessWidget {
     this.controller,
     this.keyboardType,
     this.labelText,
+    this.responsive = false,
     this.focusNode,
     this.hintText,
     this.textCapitalization = TextCapitalization.none,
@@ -349,6 +445,7 @@ class GfTextField extends StatelessWidget {
           labelText: labelText,
           focusNode: focusNode,
           hintText: hintText,
+          responsive: responsive,
           textCapitalization: textCapitalization,
           textAlign: textAlign,
           textAlignVertical: textAlignVertical,
@@ -392,6 +489,7 @@ class GfTextField extends StatelessWidget {
           onChanged: onChanged,
           focusNode: focusNode,
           hintText: hintText,
+          responsive: responsive,
           textCapitalization: textCapitalization,
           textAlign: textAlign,
           textAlignVertical: textAlignVertical,
@@ -427,6 +525,7 @@ class GfTextField extends StatelessWidget {
           labelText: labelText,
           focusNode: focusNode,
           hintText: hintText,
+          responsive: responsive,
           textCapitalization: textCapitalization,
           textAlign: textAlign,
           textAlignVertical: textAlignVertical,
@@ -484,6 +583,7 @@ class GfTextField extends StatelessWidget {
           focusNode: focusNode,
           onChanged: onChanged,
           hintText: hintText,
+          responsive: responsive,
           textCapitalization: textCapitalization,
           textAlign: textAlign,
           textAlignVertical: textAlignVertical,
