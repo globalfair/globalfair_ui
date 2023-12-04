@@ -13,6 +13,7 @@ import 'package:globalfair_ui/widgets/gf_snackbar.dart';
 import 'package:globalfair_ui/widgets/gf_switch.dart';
 import 'package:globalfair_ui/widgets/gf_tag.dart';
 import 'package:globalfair_ui/widgets/gf_textfield.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:unicons/unicons.dart';
 
 void main() {
@@ -24,10 +25,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(fontFamily: 'Lato'),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    return  ResponsiveSizer(
+        builder: (_, __, ___) => MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(fontFamily: 'Lato'),
+        home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      ),
     );
   }
 }
@@ -905,7 +908,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: GfTextField(
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -1620,7 +1623,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: GfUploadButton(
-                                  onPressed: () {},
+                                  onPressed:()=>print("aaa"),
                                 ),
                               ),
                               Padding(

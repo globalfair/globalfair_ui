@@ -33,6 +33,8 @@ dependencies:
     sdk: flutter
   globalfair_ui:
     path: ../
+  responsive_builder: 0.4.3
+  responsive_sizer: 3.1.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
