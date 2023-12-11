@@ -23,6 +23,17 @@ class GfTag extends StatelessWidget {
         backgroundColor = const Color(0xffEBF6FF),
         super(key: key);
 
+  const GfTag.custom(
+      {Key? key,
+      this.suffix,
+      this.prefix,
+      required this.label,
+      this.onPrefixTap,
+      required this.textColor,
+      required this.backgroundColor,
+      this.onSuffixTap})
+      : super(key: key);
+
   const GfTag.blue(
       {Key? key,
       this.suffix,
