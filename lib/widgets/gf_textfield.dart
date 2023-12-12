@@ -153,6 +153,7 @@ class _GfTextFieldInternalState extends State<GfTextFieldInternal> {
                       textCapitalization: widget.textCapitalization,
                       textAlign: widget.textAlign,
                       validator: (a) {
+                        a = a?.trim();
                         if (widget.validator != null)
                           result = widget.validator!(a);
                         setState(() {
